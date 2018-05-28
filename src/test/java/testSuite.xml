@@ -9,25 +9,25 @@
     </listeners>
     <test name="Test1">
         <classes>
-            <class name="tests.InitializeTest" />
+            <class name="tests.positive.InitializeTest" />
         </classes>
     </test>
     <test name="Test2">
         <classes>
 
-            <class name="tests.DeinitializeTest" />
+            <class name="tests.positive.DeinitializeTest" />
         </classes>
 
     </test>
     <test name="Test3">
         <classes>
-            <class name="tests.ReinitializeTest" />
+            <class name="tests.positive.ReinitializeTest" />
         </classes>
 
     </test>
     <test name="Test4">
         <classes>
-            <class name="tests.GetWorkflowsTest" />
+            <class name="tests.positive.GetWorkflowsTest" />
         </classes>
 
     </test>

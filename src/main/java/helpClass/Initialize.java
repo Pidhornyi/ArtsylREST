@@ -16,8 +16,8 @@ public class Initialize {
 
   public  InitializePOJO InitializeHelpMethod() {
         String nameMethood = "InitializeResult";
-
-        String url = URLMethods.getUrlInitialize();
+        URLMethods methodsUrl = new URLMethods();
+        String url = methodsUrl.getUrlInitialize();
         System.out.println("Start Initialize Help Class");
 
         Response response = get(url);

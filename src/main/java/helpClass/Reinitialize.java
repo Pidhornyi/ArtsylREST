@@ -18,8 +18,8 @@ public class Reinitialize {
         System.out.println("Start Reinitialize Help Class");
         String nameMethood = "ReinitializeResult";
 
-
-        String url = URLMethods.getUrlReinitialize(ReturnedValue);
+        URLMethods methods = new URLMethods();
+        String url = methods.getUrlReinitialize(ReturnedValue);
         System.out.println(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);

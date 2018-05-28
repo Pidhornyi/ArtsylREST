@@ -1,4 +1,4 @@
-package tests;
+package tests.positive;
 
 import com.jayway.restassured.response.Response;
 import helpClass.Deinitialize;
@@ -23,7 +23,8 @@ public class GetWorkflowsTest {
         Initialize initialize = new Initialize();
         InitializePOJO pojo = initialize.InitializeHelpMethod();
 
-        String urlWorkflow = URLMethods.getUrlGetWorkflows();
+        URLMethods methods = new URLMethods();
+        String urlWorkflow = methods.getUrlGetWorkflows();
 
         // Запрос вместе с подставленной cookie
         Response getworkflow = given().cookie(String.valueOf(pojo.getCookie())).when().get(urlWorkflow);

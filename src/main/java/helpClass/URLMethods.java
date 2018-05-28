@@ -1,3 +1,5 @@
+
+
 package helpClass;
 /*
             Success = 101,
@@ -8,63 +10,104 @@ package helpClass;
             Authorized = 106
  */
 
-public class URLMethods {
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
-    private static final String user = "Admin";
-    private static final String password = "Artsyl";
+public class URLMethods {
+    private static String user;
+    private static String password ;
 
     //Create a session and return its guid
-    private static String urlInitialize = "http://localhost:8058/docAlphaExternalAccessRestApi.svc/Initialize?";
+    private static String urlInitialize;
 
     //ReinitializeTest session for user, using specified identificator.
-    private static String urlReinitialize = "http://localhost:8058/docAlphaExternalAccessRestApi.svc/Reinitialize?";
+    private static String urlReinitialize;
 
     //Deinitialize session.
-    private static String urlDeinitialize = "http://localhost:8058/docAlphaExternalAccessRestApi.svc/Deinitialize" ;
+    private static String urlDeinitialize;
 
     //Return description of workflows. (in JSON)
-    private static String urlGetWorkflows = "http://localhost:8058/docAlphaExternalAccessRestApi.svc/GetWorkflows" ;
+    private static String urlGetWorkflows;
 
     //Return description of batches Id of which are taken from 'takeFrom' with amount of 'amount'. (string takeFrom, string count)
-    private static String urlGetBatch = "http://localhost/docAlphaExternalAccessRestApi.svc/GetBatches?";
+    private static String urlGetBatch;
 
     //Return description of batches enabled for editing Id of which are taken from 'takeFrom' with amount of 'amount'.(string takeFrom, string count)
-    private static String urlGetBatchesForEditing = "http://localhost/docAlphaExternalAccessRestApi.svc/GetBatchesForEditing?";
+    private static String urlGetBatchesForEditing;
 
     //Return batch that was created (String workflowGuid)
-    private static String urlCreateBatch = "http://localhost/docAlphaExternalAccessRestApi.svc/CreateBatch?";
+    private static String urlCreateBatch;
 
     //Load batch by specified guid and return it. (String batchGuid)
-    private static String urlLoadBatchByGuid = "http://localhost/docAlphaExternalAccessRestApi.svc/LoadBatchByGuid?";
+    private static String urlLoadBatchByGuid ;
 
     //Return true if batch metadata were added successfully and false if not.
-    private static String urlAddBatchMetadata = "http://localhost/docAlphaExternalAccessRestApi.svc/AddBatchMetadata?";
+    private static String urlAddBatchMetadata;
 
     //Send current batch to the server and return it.
-    private static String urlSendBatch = "http://localhost/docAlphaExternalAccessRestApi.svc/SendBatch";
+    private static String urlSendBatch;
 
     // Return the description of all of the documents of current batch.
-    private static String urlGetBatchDocuments = "http://localhost/docAlphaExternalAccessRestApi.svc/GetBatchDocuments";
+    private static String urlGetBatchDocuments ;
 
     //Pospone current batch.
-    private static String urlPostponeBatch = "http://localhost/docAlphaExternalAccessRestApi.svc/PostponeBatch";
+    private static String urlPostponeBatch ;
 
     //Return fields of selecred document.
-    private static String urlGetDocumentFields = "http://localhost/docAlphaExternalAccessRestApi.svc/GetDocumentFields?";
+    private static String urlGetDocumentFields ;
 
     //Return a stream of selected document page.
-    private static String urlGetDocumentPage = "http://localhost/docAlphaExternalAccessRestApi.svc/GetDocumentPage?";
+    private static String urlGetDocumentPage ;
 
     //Set comment for document with specified guid.
-    private static String urlSetDocumentComment = "http://localhost/docAlphaExternalAccessRestApi.svc/SetDocumentComment?";
+    private static String urlSetDocumentComment;
 
     //Set field value for document with specified guid.
-    private static String urlSetDocumentField = "http://localhost/docAlphaExternalAccessRestApi.svc/SetDocumentField?";
+    private static String urlSetDocumentField ;
 
     //Set document flag status for document with specified guid.
-    private static String urlSetDocumentStatus ="http://localhost/docAlphaExternalAccessRestApi.svc/SetDocumentStatus?";
+    private static String urlSetDocumentStatus ;
 
-    public static String getUrlInitialize(){
+
+    public FileInputStream fis;
+   public URLMethods() {
+
+        Properties property = new Properties();
+
+        try {
+            fis = new FileInputStream("src/main/resources/URLData.properties");
+            property.load(fis);
+
+            this.user = property.getProperty("dAUser");
+            this.password = property.getProperty("dAPassword");
+            this.urlInitialize = property.getProperty("dAurlInitialize");
+            this.urlReinitialize = property.getProperty("dAurlReinitialize");
+            this.urlDeinitialize = property.getProperty("dAurlDeinitialize");
+            this.urlGetWorkflows = property.getProperty("dAurlGetWorkflows");
+            this.urlGetBatch= property.getProperty("dAurlGetBatch");
+            this.urlGetBatchesForEditing = property.getProperty("dAurlGetBatchesForEditing");
+            this.urlCreateBatch = property.getProperty("dAurlCreateBatch");
+            this.urlLoadBatchByGuid = property.getProperty("dAurlLoadBatchByGuid");
+            this.urlAddBatchMetadata = property.getProperty("dAurlAddBatchMetadata");
+            this.urlSendBatch = property.getProperty("dAurlSendBatch");
+            this.urlGetBatchDocuments = property.getProperty("dAurlGetBatchDocuments");
+            this.urlPostponeBatch = property.getProperty("dAurlPostponeBatch");
+            this.urlGetDocumentFields = property.getProperty("dAurlGetDocumentFields");
+            this.urlGetDocumentPage = property.getProperty("dAurlGetDocumentPage");
+            this.urlSetDocumentComment = property.getProperty("dAurlSetDocumentComment");
+            this.urlSetDocumentField = property.getProperty("dAurlSetDocumentField");
+            this.urlSetDocumentStatus = property.getProperty("dAurlSetDocumentStatus");
+
+
+        } catch (IOException e) {
+            System.err.println("Error: properties file is missed!");
+        }
+
+    }
+
+
+    public String getUrlInitialize(){
         String result = urlInitialize + "user=" + user + "&password=" + password;
         return result;
     }

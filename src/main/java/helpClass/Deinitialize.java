@@ -18,7 +18,9 @@ public class Deinitialize {
 
         String nameMethood = "DeinitializeResult";
 
-        String url = URLMethods.getUrlDeinitialize();
+
+        URLMethods methods = new URLMethods();
+        String url = methods.getUrlDeinitialize();
 
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
