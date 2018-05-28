@@ -1,11 +1,10 @@
 package tests.positive;
 
 import com.jayway.restassured.response.Response;
-import helpClass.Deinitialize;
-import helpClass.GSONparser;
-import helpClass.Initialize;
-import helpClass.URLMethods;
+import helpClass.*;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pojo.InitializePOJO;
 
@@ -15,33 +14,52 @@ import static com.jayway.restassured.RestAssured.given;
 
 public class GetWorkflowsTest {
 
+    static Initialize initialize ;
+    static InitializePOJO pojo ;
+
+    static GetWorkflows getWorkflows;
+    static InitializePOJO getWorkflowPOJO;
+
+    static Deinitialize deinitialize;
+    static InitializePOJO deinitializePOJO;
+
+    @BeforeMethod
+    public void Initialize(){
+        initialize = new Initialize();
+        pojo = initialize.InitializeHelpMethod();
+    }
+
     @Test
     public void getWorkflowMethood() {
         System.out.println("Start Workflow Test at " + new Date());
-        String nameMethood = "GetWorkflowsResult";
 
-        Initialize initialize = new Initialize();
-        InitializePOJO pojo = initialize.InitializeHelpMethod();
+        getWorkflows = new GetWorkflows(pojo.getCookie());
+        getWorkflowPOJO = getWorkflows.InitializeHelpMethod();
 
-        URLMethods methods = new URLMethods();
-        String urlWorkflow = methods.getUrlGetWorkflows();
+        System.out.println("Message " + getWorkflowPOJO.getMessage());
+        System.out.println("responseCode " + getWorkflowPOJO.getDocAlphaResponseCode());
+        Assert.assertEquals(getWorkflowPOJO.getDocAlphaResponseCode(),"101");
 
-        // Запрос вместе с подставленной cookie
-        Response getworkflow = given().cookie(String.valueOf(pojo.getCookie())).when().get(urlWorkflow);
-        GSONparser jsoNparseWorkflow = new GSONparser(getworkflow, nameMethood);
-        InitializePOJO pojoWorkflow = jsoNparseWorkflow.parser();
-        System.out.println("Message " + pojoWorkflow.getMessage());
-        System.out.println("responseCode " + pojoWorkflow.getDocAlphaResponseCode());
-        Assert.assertEquals(pojo.getDocAlphaResponseCode(),"101");
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.toString());
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getDocAlphaResponseCode());
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMessage());
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getReturnedValue());
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMap().keySet());
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMap().get("ForRestTest").get("Guid"));
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getDocAlphaResponseCode());
         System.out.println("End Workflow Test at " + new Date());
         System.out.println("Test passed ");
-        //System.out.println(pojoWorkflow.getMap().get("ForRestAPI").get("Guid"));
 
-        System.out.println("Start Deinitialize at : " + new Date());
-        Deinitialize deinitialize = new Deinitialize(pojo.getCookie());
-        deinitialize.deinitialize();
-        System.out.println("End Deinitialize at : " + new Date());
+    }
 
-
+    //Deinitialize
+    @AfterMethod
+    public void Deinitialize(){
+        System.out.println("Start Deinitialize at " + new Date());
+        deinitialize= new Deinitialize(pojo.getCookie());
+        deinitializePOJO = deinitialize.deinitialize();
+        System.out.println("massage = " + deinitializePOJO.getMessage());
+        Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
+        System.out.println("End Deinitialize at " + new Date());
     }
 }

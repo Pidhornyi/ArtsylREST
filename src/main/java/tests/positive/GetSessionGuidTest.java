@@ -1,8 +1,8 @@
 package tests.positive;
 
 import helpClass.Deinitialize;
+import helpClass.GetSessionGuid;
 import helpClass.Initialize;
-import helpClass.Reinitialize;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,41 +11,43 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-public class ReinitializeTest {
+public class GetSessionGuidTest {
 
-    static Initialize initialize ;
-    static InitializePOJO pojo ;
+    static Initialize initialize;
+    static InitializePOJO pojo;
 
-    static Reinitialize reinitialize;
-    static InitializePOJO reinitializePOJO;
+    static GetSessionGuid getSessionGuid;
+    static InitializePOJO getSessionGuidPOJO;
 
     static Deinitialize deinitialize;
     static InitializePOJO deinitializePOJO;
 
-    //Initialize
+
     @BeforeMethod
-    public void Initialize(){
+    public void Intitalize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
+
     }
 
-    //Reinitialize
+    //getSessionGuid
     @Test
-    public void reinitialize() {
+    public void GetSessionGuid() {
 
-        System.out.println("Start Reinitialize Test at : " + new Date());
-
+        System.out.println("Start GetSessionGuid Test at : " + new Date());
 
         String returnedValue = pojo.getReturnedValue().replaceAll("\"","");
-        reinitialize = new Reinitialize(pojo.getCookie(),returnedValue);
-        reinitializePOJO = reinitialize.reinitialize();
-        System.out.println("massage = " + reinitializePOJO.getMessage());
-        Assert.assertEquals(reinitializePOJO.getDocAlphaResponseCode(), "101");
-        System.out.println("End Reinitialize Test at : " + new Date());
+        getSessionGuid = new GetSessionGuid(pojo.getCookie());
+        getSessionGuidPOJO = getSessionGuid.GetSessionGuidMethud();
+        System.out.println(getSessionGuidPOJO.getReturnedValue());
+        System.out.println("massage = " + getSessionGuidPOJO.getMessage());
+        Assert.assertEquals(getSessionGuidPOJO.getDocAlphaResponseCode(), "101");
+        System.out.println("End GetSessionGuid Test at : " + new Date());
 
 
 
     }
+
 
     //Deinitialize
     @AfterMethod
@@ -57,4 +59,5 @@ public class ReinitializeTest {
         Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());
     }
+
 }

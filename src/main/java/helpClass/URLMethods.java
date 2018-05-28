@@ -21,6 +21,9 @@ public class URLMethods {
     //Create a session and return its guid
     private static String urlInitialize;
 
+    //GetSessionGuid get your session id
+    private static String urlGetSessionGuid;
+
     //ReinitializeTest session for user, using specified identificator.
     private static String urlReinitialize;
 
@@ -82,6 +85,7 @@ public class URLMethods {
             this.user = property.getProperty("dAUser");
             this.password = property.getProperty("dAPassword");
             this.urlInitialize = property.getProperty("dAurlInitialize");
+            this.urlGetSessionGuid = property.getProperty("dAurlGetSessionGuid");
             this.urlReinitialize = property.getProperty("dAurlReinitialize");
             this.urlDeinitialize = property.getProperty("dAurlDeinitialize");
             this.urlGetWorkflows = property.getProperty("dAurlGetWorkflows");
@@ -109,6 +113,11 @@ public class URLMethods {
 
     public String getUrlInitialize(){
         String result = urlInitialize + "user=" + user + "&password=" + password;
+        return result;
+    }
+
+    public String getUrlGetSessionGuid(){
+        String result = urlGetSessionGuid;
         return result;
     }
 

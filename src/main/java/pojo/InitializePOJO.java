@@ -17,10 +17,19 @@ public class InitializePOJO {
     private String __type;
     private Map<String,Map<String,String>> map;
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "InitializePOJO{" +
+                "DocAlphaResponseCode='" + DocAlphaResponseCode + '\'' +
+                ", ReturnedValue='" + ReturnedValue + '\'' +
+                ", Message='" + Message + '\'' +
+                ", Cookie=" + Cookie +
+                ", GuId='" + GuId + '\'' +
+                ", Name='" + Name + '\'' +
+                ", __type='" + __type + '\'' +
+                ", map=" + map +
+                '}';
+    }
 
     public Map<String, Map<String, String>> getMap() {
         return map;

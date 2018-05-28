@@ -3,12 +3,8 @@ package helpClass;
 import com.jayway.restassured.response.Response;
 import pojo.InitializePOJO;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-
 import static com.jayway.restassured.RestAssured.get;
-import static com.jayway.restassured.RestAssured.given;
+
 
 
 public class Initialize {
@@ -26,7 +22,7 @@ public class Initialize {
         System.out.println("Response Code = " + pojo.getReturnedValue());
         System.out.println("End Initialize Help Class/  pojo = " +  pojo);
         return pojo;
-       // Assert.assertEquals(pojo.getDocAlphaResponseCode(),"101");
+
 
         //Test Workflow
 

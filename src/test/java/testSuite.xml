@@ -31,5 +31,11 @@
         </classes>
 
     </test>
+    <test name="Test5">
+        <classes>
+            <class name="tests.positive.GetSessionGuidTest" />
+        </classes>
+
+    </test>
 
 </suite>
