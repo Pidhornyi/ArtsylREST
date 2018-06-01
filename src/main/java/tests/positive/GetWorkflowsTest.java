@@ -34,7 +34,7 @@ public class GetWorkflowsTest {
         System.out.println("Start Workflow Test at " + new Date());
 
         getWorkflows = new GetWorkflows(pojo.getCookie());
-        getWorkflowPOJO = getWorkflows.InitializeHelpMethod();
+        getWorkflowPOJO = getWorkflows.InitializeHelpMethodGetWorkflows();
 
         System.out.println("Message " + getWorkflowPOJO.getMessage());
         System.out.println("responseCode " + getWorkflowPOJO.getDocAlphaResponseCode());
@@ -59,7 +59,7 @@ public class GetWorkflowsTest {
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitialize();
         System.out.println("massage = " + deinitializePOJO.getMessage());
-        Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
+        Assert.assertEquals(deinitializePOJO.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());
     }
 }

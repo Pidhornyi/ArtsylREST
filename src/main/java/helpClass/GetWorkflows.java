@@ -14,7 +14,7 @@ public class GetWorkflows {
         this.cookies=cookies;
     }
 
-    public InitializePOJO InitializeHelpMethod(){
+    public InitializePOJO InitializeHelpMethodGetWorkflows(){
 
         String nameMethood = "GetWorkflowsResult";
 

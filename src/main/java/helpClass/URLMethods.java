@@ -15,62 +15,62 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class URLMethods {
-    private static String user;
-    private static String password ;
+    private  String user;
+    private String password ;
 
     //Create a session and return its guid
-    private static String urlInitialize;
+    private  String urlInitialize;
 
     //GetSessionGuid get your session id
-    private static String urlGetSessionGuid;
+    private  String urlGetSessionGuid;
 
     //ReinitializeTest session for user, using specified identificator.
-    private static String urlReinitialize;
+    private  String urlReinitialize;
 
     //Deinitialize session.
-    private static String urlDeinitialize;
+    private  String urlDeinitialize;
 
     //Return description of workflows. (in JSON)
-    private static String urlGetWorkflows;
+    private  String urlGetWorkflows;
 
     //Return description of batches Id of which are taken from 'takeFrom' with amount of 'amount'. (string takeFrom, string count)
-    private static String urlGetBatch;
+    private  String urlGetBatch;
 
     //Return description of batches enabled for editing Id of which are taken from 'takeFrom' with amount of 'amount'.(string takeFrom, string count)
-    private static String urlGetBatchesForEditing;
+    private  String urlGetBatchesForEditing;
 
     //Return batch that was created (String workflowGuid)
-    private static String urlCreateBatch;
+    private  String urlCreateBatch;
 
     //Load batch by specified guid and return it. (String batchGuid)
-    private static String urlLoadBatchByGuid ;
+    private  String urlLoadBatchByGuid ;
 
     //Return true if batch metadata were added successfully and false if not.
-    private static String urlAddBatchMetadata;
+    private  String urlAddBatchMetadata;
 
     //Send current batch to the server and return it.
-    private static String urlSendBatch;
+    private String urlSendBatch;
 
     // Return the description of all of the documents of current batch.
-    private static String urlGetBatchDocuments ;
+    private  String urlGetBatchDocuments ;
 
     //Pospone current batch.
-    private static String urlPostponeBatch ;
+    private  String urlPostponeBatch ;
 
     //Return fields of selecred document.
-    private static String urlGetDocumentFields ;
+    private  String urlGetDocumentFields ;
 
     //Return a stream of selected document page.
-    private static String urlGetDocumentPage ;
+    private  String urlGetDocumentPage ;
 
     //Set comment for document with specified guid.
-    private static String urlSetDocumentComment;
+    private  String urlSetDocumentComment;
 
     //Set field value for document with specified guid.
-    private static String urlSetDocumentField ;
+    private  String urlSetDocumentField ;
 
     //Set document flag status for document with specified guid.
-    private static String urlSetDocumentStatus ;
+    private String urlSetDocumentStatus ;
 
 
     public FileInputStream fis;
@@ -121,85 +121,85 @@ public class URLMethods {
         return result;
     }
 
-    public static String getUrlReinitialize ( String identificator){
+    public  String getUrlReinitialize ( String identificator){
         String result = urlReinitialize + "user=" + user + "&password=" + password + "&identificator=" + identificator;
         return result;
     }
 
-    public static String getUrlDeinitialize () {
+    public String getUrlDeinitialize () {
         String result = urlDeinitialize;
         return result;
     }
 
-    public static String getUrlGetWorkflows () {
+    public String getUrlGetWorkflows () {
         String result = urlGetWorkflows;
         return result;
     }
 
-    public static String getUrlGetBatch(String takeFromValue, String countValue){
-        String result = urlGetBatch + "takeFrom=" + takeFromValue + "&count=" + countValue;
+    public String getUrlGetBatches(String takeFromValue, String countValue, String guid){
+        String result = urlGetBatch + "takeFrom=" + takeFromValue + "&count=" + countValue + "&guid=" + guid;
         return result;
 
     }
 
-    public static String getUrlGetBatchesForEditing(String takeFromValue, String countValue){
+    public String getUrlGetBatchesForEditing(String takeFromValue, String countValue){
         String result = urlGetBatchesForEditing + "takeFrom=" + takeFromValue + "&count=" + countValue;
         return result;
     }
 
-    public static String getUrlCreateBatch (String workflowGuid) {
+    public String getUrlCreateBatch (String workflowGuid) {
         String result = urlCreateBatch + "workflowGuid=" + workflowGuid;
         return result;
     }
 
-    public static String getUrlLoadBatchByGuid (String batchGuid) {
+    public String getUrlLoadBatchByGuid (String batchGuid) {
         String result = urlLoadBatchByGuid + "batchGuid=" + batchGuid;
         return result;
 
     }
 
-    public static String getUrlAddBatchMetadata(String BatchName, String value){
+    public String getUrlAddBatchMetadata(String BatchName, String value){
         String result = urlAddBatchMetadata + "name=" + BatchName + "&value=" + value;
         return result;
     }
 
-    public static String getUrlSendBatch(){
+    public String getUrlSendBatch(){
         String result = urlSendBatch;
         return result;
     }
 
-    public static String getUrlGetBatchDocuments () {
+    public String getUrlGetBatchDocuments () {
         String result = urlGetBatchDocuments;
         return result;
     }
 
-    public static String getUrlPostponeBatch(){
+    public String getUrlPostponeBatch(){
         String result = urlPostponeBatch;
         return result;
     }
 
-    public static String getUrlGetDocumentFields(String guid){
+    public String getUrlGetDocumentFields(String guid){
         String result = urlGetDocumentFields + "guid=" + guid;
         return result;
     }
 
-    public static String getUrlGetDocumentPage(String guid, String pageValue){
+    public String getUrlGetDocumentPage(String guid, String pageValue){
         String result = urlGetDocumentPage + "guid=" + guid + "&page=" + pageValue;
         return result;
 
     }
 
-    public static String getUrlSetDocumentComment(String guid, String commentValue){
+    public String getUrlSetDocumentComment(String guid, String commentValue){
         String result = urlSetDocumentComment + "guid=" + guid + "&comment=" + commentValue;
         return result;
     }
 
-    public static String getUrlSetDocumentField(String docGuidValue, String fieldGuidValue, String value){
+    public String getUrlSetDocumentField(String docGuidValue, String fieldGuidValue, String value){
         String result = urlSetDocumentField + "docGuid=" + docGuidValue + "&fieldGuid=" + fieldGuidValue + "&value=" + value;
         return result;
     }
 
-    public static String getUrlSetDocumentStatus(String guid, String flagValue, String statusValue){
+    public String getUrlSetDocumentStatus(String guid, String flagValue, String statusValue){
         String result = urlSetDocumentStatus + "guid=" + guid + "&flag=" + flagValue + "&status=" + statusValue;
         return result;
     }
