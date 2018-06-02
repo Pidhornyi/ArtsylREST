@@ -168,7 +168,7 @@ public class URLMethods {
     }
 
     public String getUrlAddBatchImage(String fileBytes, String fileName){
-        String result = urlAddBatchMetadata + "fileBytes=" + fileBytes + "&fileName=" +fileName;
+        String result = getUrlAddBatchImage + "fileBytes=" + fileBytes + "&fileName=" +fileName;
         return result;
     }
 

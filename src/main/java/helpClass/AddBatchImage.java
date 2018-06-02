@@ -1,5 +1,6 @@
 package helpClass;
 
+import com.jayway.restassured.internal.RestAssuredResponseImpl;
 import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
 
@@ -36,6 +37,7 @@ public class AddBatchImage {
 
 
         try {
+            length = new File("src/main/resources/TestPDF.Pdf");
             file = new FileInputStream("src/main/resources/TestPDF.Pdf");
            readBytes=file.read();
             while(readBytes!=-1){
@@ -52,11 +54,11 @@ public class AddBatchImage {
         }
 
         URLMethods methods = new URLMethods();
-
-        String url = methods.getUrlAddBatchImage(test,batchName);
+        System.out.println("))))))))))))))))))))))) " + String.valueOf(length.length()));
+        String url = methods.getUrlAddBatchImage(String.valueOf(length.length()),batchName);
         System.out.println("))))))))))))))))))))))) " + String.valueOf(file));
 
-        Response response = given().cookie(String.valueOf(cookies)).when().get(url);
+        Response response = given().cookie(String.valueOf(cookies)).given().content(file).when().get(url);
         System.out.println("))))))))))))))))))))))) " + response.toString());
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
