@@ -6,26 +6,32 @@ import pojo.InitializePOJO;
 
 import static com.jayway.restassured.RestAssured.given;
 
-public class Reinitialize {
-    private String ReturnedValue;
+public class CreateBatch {
+
+
     private Cookies cookies;
-    public Reinitialize(Cookies cookies, String ReturnedValue){
-        this.ReturnedValue=ReturnedValue;
+    private String guidWorkflow;
+    public CreateBatch(Cookies cookies, String guidWorkflow){
         this.cookies=cookies;
+        this.guidWorkflow = guidWorkflow;
     }
 
-    public InitializePOJO reinitializeMethod(){
-        System.out.println("Start Reinitialize Help Class");
-        String nameMethod = "ReinitializeResult";
+    public InitializePOJO createBatchMethod() {
+        System.out.println("CreateBatch Help Class");
+
+        String nameMethod = "CreateBatchResult";
+
 
         URLMethods methods = new URLMethods();
-        String url = methods.getUrlReinitialize(ReturnedValue);
-        System.out.println(url);
+        String url = methods.getUrlCreateBatch(guidWorkflow);
+
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
+
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();
-        System.out.println("End Reinitialize Help Class");
+        System.out.println("End CreateBatch Help Class");
         return pojo;
     }
+
 }

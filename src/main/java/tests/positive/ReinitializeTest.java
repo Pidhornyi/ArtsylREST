@@ -38,7 +38,7 @@ public class ReinitializeTest {
 
         String returnedValue = pojo.getReturnedValue().replaceAll("\"","");
         reinitialize = new Reinitialize(pojo.getCookie(),returnedValue);
-        reinitializePOJO = reinitialize.reinitialize();
+        reinitializePOJO = reinitialize.reinitializeMethod();
         System.out.println("massage = " + reinitializePOJO.getMessage());
         Assert.assertEquals(reinitializePOJO.getDocAlphaResponseCode(), "101");
         System.out.println("End Reinitialize Test at : " + new Date());
@@ -52,7 +52,7 @@ public class ReinitializeTest {
     public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
-        deinitializePOJO = deinitialize.deinitialize();
+        deinitializePOJO = deinitialize.deinitializeMethod();
         System.out.println("massage = " + deinitializePOJO.getMessage());
         Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());

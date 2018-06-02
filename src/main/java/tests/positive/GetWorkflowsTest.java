@@ -1,6 +1,5 @@
 package tests.positive;
 
-import com.jayway.restassured.response.Response;
 import helpClass.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -10,7 +9,6 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-import static com.jayway.restassured.RestAssured.given;
 
 public class GetWorkflowsTest {
 
@@ -34,7 +32,7 @@ public class GetWorkflowsTest {
         System.out.println("Start Workflow Test at " + new Date());
 
         getWorkflows = new GetWorkflows(pojo.getCookie());
-        getWorkflowPOJO = getWorkflows.InitializeHelpMethodGetWorkflows();
+        getWorkflowPOJO = getWorkflows.getWorkflowsMethod();
 
         System.out.println("Message " + getWorkflowPOJO.getMessage());
         System.out.println("responseCode " + getWorkflowPOJO.getDocAlphaResponseCode());
@@ -57,7 +55,7 @@ public class GetWorkflowsTest {
     public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
-        deinitializePOJO = deinitialize.deinitialize();
+        deinitializePOJO = deinitialize.deinitializeMethod();
         System.out.println("massage = " + deinitializePOJO.getMessage());
         Assert.assertEquals(deinitializePOJO.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());

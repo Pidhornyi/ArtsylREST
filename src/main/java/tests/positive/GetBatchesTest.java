@@ -31,20 +31,21 @@ public class GetBatchesTest {
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
         getWorkflows =new GetWorkflows(pojo.getCookie());
-        getWorkflowsPojo =getWorkflows.InitializeHelpMethodGetWorkflows();
+        getWorkflowsPojo =getWorkflows.getWorkflowsMethod();
 
     }
 
 
     @Test
     public void GetBatches(){
-
+        // необходимо указать параметры Name и Guid для конкретного Workflow
         getBatches = new GetBatches(pojo.getCookie(),getWorkflowsPojo.getMap().get("TEST_REST_API").get("Guid"));
+
         System.out.println(getWorkflowsPojo.getMap().get("TEST_REST_API").get("Guid"));
 
-        getBatchesPOJO = getBatches.getBatchesMethood("0","1");
-       // Assert.assertEquals(getBatchesPOJO.getDocAlphaResponseCode(),"101");
-        //System.out.println("getBatchesPOJO = " + getBatchesPOJO.toString());
+        getBatchesPOJO = getBatches.getBatchesMethod("0","1");
+       Assert.assertEquals(getBatchesPOJO.getDocAlphaResponseCode(),"101");
+        System.out.println("getBatchesPOJO = " + getBatchesPOJO.toString());
 
 
     }
@@ -57,7 +58,7 @@ public class GetBatchesTest {
     public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
-        deinitializePOJO = deinitialize.deinitialize();
+        deinitializePOJO = deinitialize.deinitializeMethod();
         System.out.println("massage = " + deinitializePOJO.getMessage());
         Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
         // System.out.println("End Deinitialize at " + new Date());

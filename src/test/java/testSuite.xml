@@ -38,4 +38,11 @@
 
     </test>
 
+    <test name="Test6">
+        <classes>
+            <class name="tests.positive.GetBatchesTest" />
+        </classes>
+
+    </test>
+
 </suite>

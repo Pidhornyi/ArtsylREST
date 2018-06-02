@@ -13,10 +13,10 @@ public class GetSessionGuid {
         this.cookies=cookies;
     }
 
-    public InitializePOJO GetSessionGuidMethud() {
+    public InitializePOJO GetSessionGuidMethod() {
         System.out.println("Start GetSessionGuid Help Class");
 
-        String nameMethood = "GetSessionGuidResult";
+        String nameMethod = "GetSessionGuidResult";
 
 
         URLMethods methods = new URLMethods();
@@ -24,7 +24,8 @@ public class GetSessionGuid {
 
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
-        GSONparser gsoNparser = new GSONparser(response,nameMethood);
+
+        GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();
         System.out.println("End Deinitialize Help Class");
         return pojo;

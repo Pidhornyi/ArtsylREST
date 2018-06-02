@@ -31,7 +31,7 @@ static Deinitialize deinitialize;
     public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize = new Deinitialize(pojo.getCookie());
-        deinitialize.deinitialize();
+        deinitialize.deinitializeMethod();
         System.out.println("End Deinitialize at : " + new Date());
 
     }

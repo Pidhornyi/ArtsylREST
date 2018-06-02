@@ -14,9 +14,9 @@ public class GetWorkflows {
         this.cookies=cookies;
     }
 
-    public InitializePOJO InitializeHelpMethodGetWorkflows(){
+    public InitializePOJO getWorkflowsMethod(){
 
-        String nameMethood = "GetWorkflowsResult";
+        String nameMethod = "GetWorkflowsResult";
 
 
         URLMethods methods = new URLMethods();
@@ -24,7 +24,7 @@ public class GetWorkflows {
 
         // Запрос вместе с подставленной cookie
         Response getworkflow = given().cookie(String.valueOf(cookies)).when().get(urlWorkflow);
-        GSONparser jsoNparseWorkflow = new GSONparser(getworkflow, nameMethood);
+        GSONparser jsoNparseWorkflow = new GSONparser(getworkflow, nameMethod);
         InitializePOJO pojoWorkflow = jsoNparseWorkflow.parser();
 
 

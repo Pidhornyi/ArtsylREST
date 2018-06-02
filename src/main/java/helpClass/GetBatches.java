@@ -17,10 +17,10 @@ public class GetBatches {
    this.workFlowGuid=guid;
     }
 
-    public InitializePOJO getBatchesMethood(String takeFrom, String count){
+    public InitializePOJO getBatchesMethod(String takeFrom, String count){
 
 
-        String nameMethood = "GetBatchesResult";
+        String nameMethod = "GetBatchesResult";
 
 
         URLMethods methods = new URLMethods();
@@ -29,7 +29,7 @@ public class GetBatches {
 
         // Запрос вместе с подставленной cookie
         Response getBatches = given().cookie(String.valueOf(cookies)).when().get(urlGetBatches);
-        GSONparser jsoNparseGetBatches = new GSONparser(getBatches, nameMethood);
+        GSONparser jsoNparseGetBatches = new GSONparser(getBatches, nameMethod);
         InitializePOJO pojoGetBatches = jsoNparseGetBatches.parser();
 
 

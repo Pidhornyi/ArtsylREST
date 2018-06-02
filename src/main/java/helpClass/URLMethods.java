@@ -48,6 +48,9 @@ public class URLMethods {
     //Return true if batch metadata were added successfully and false if not.
     private  String urlAddBatchMetadata;
 
+    //Return true if batch image was loaded successfully and false if not.
+    private String getUrlAddBatchImage;
+
     //Send current batch to the server and return it.
     private String urlSendBatch;
 
@@ -93,6 +96,7 @@ public class URLMethods {
             this.urlGetBatchesForEditing = property.getProperty("dAurlGetBatchesForEditing");
             this.urlCreateBatch = property.getProperty("dAurlCreateBatch");
             this.urlLoadBatchByGuid = property.getProperty("dAurlLoadBatchByGuid");
+            this.getUrlAddBatchImage = property.getProperty("dAurlAddBatchImage");
             this.urlAddBatchMetadata = property.getProperty("dAurlAddBatchMetadata");
             this.urlSendBatch = property.getProperty("dAurlSendBatch");
             this.urlGetBatchDocuments = property.getProperty("dAurlGetBatchDocuments");
@@ -147,6 +151,11 @@ public class URLMethods {
         return result;
     }
 
+    public String getUrlGetBatchesForEditing(String takeFromValue, String countValue, String guidWorkflow){
+        String result = urlGetBatchesForEditing + "takeFrom=" + takeFromValue + "&count=" + countValue;
+        return result;
+    }
+
     public String getUrlCreateBatch (String workflowGuid) {
         String result = urlCreateBatch + "workflowGuid=" + workflowGuid;
         return result;
@@ -156,6 +165,11 @@ public class URLMethods {
         String result = urlLoadBatchByGuid + "batchGuid=" + batchGuid;
         return result;
 
+    }
+
+    public String getUrlAddBatchImage(String fileBytes, String fileName){
+        String result = urlAddBatchMetadata + "fileBytes=" + fileBytes + "&fileName=" +fileName;
+        return result;
     }
 
     public String getUrlAddBatchMetadata(String BatchName, String value){

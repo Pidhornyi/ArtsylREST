@@ -38,7 +38,7 @@ public class GetSessionGuidTest {
 
         String returnedValue = pojo.getReturnedValue().replaceAll("\"","");
         getSessionGuid = new GetSessionGuid(pojo.getCookie());
-        getSessionGuidPOJO = getSessionGuid.GetSessionGuidMethud();
+        getSessionGuidPOJO = getSessionGuid.GetSessionGuidMethod();
         System.out.println(getSessionGuidPOJO.getReturnedValue());
         System.out.println("massage = " + getSessionGuidPOJO.getMessage());
         Assert.assertEquals(getSessionGuidPOJO.getDocAlphaResponseCode(), "101");
@@ -54,7 +54,7 @@ public class GetSessionGuidTest {
     public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
-        deinitializePOJO = deinitialize.deinitialize();
+        deinitializePOJO = deinitialize.deinitializeMethod();
         System.out.println("massage = " + deinitializePOJO.getMessage());
         Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());

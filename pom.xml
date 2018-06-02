@@ -29,6 +29,12 @@
                             <name>usedefaultlisteners</name>
                             <value>false</value>
                         </property>
+                        <property>
+                            <name>listener</name>
+                            <value>
+                                org.uncommons.reportng.HTMLReporter
+                            </value>
+                        </property>
                     </properties>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/java/testSuite.xml</suiteXmlFile>

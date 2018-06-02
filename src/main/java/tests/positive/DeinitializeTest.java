@@ -31,7 +31,7 @@ public class DeinitializeTest {
 
 
         deinitialize= new Deinitialize(pojo.getCookie());
-        deinitializePOJO = deinitialize.deinitialize();
+        deinitializePOJO = deinitialize.deinitializeMethod();
         System.out.println("massage = " + deinitializePOJO.getMessage());
         Assert.assertEquals(deinitializePOJO.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize Test at : " + new Date());
