@@ -59,6 +59,7 @@ public class AddBatchImage {
         System.out.println("))))))))))))))))))))))) " + String.valueOf(file));
 
         Response response = given().cookie(String.valueOf(cookies)).given().content(file).when().get(url);
+
         System.out.println("))))))))))))))))))))))) " + response.toString());
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);

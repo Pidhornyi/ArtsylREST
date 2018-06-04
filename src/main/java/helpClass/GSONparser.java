@@ -72,24 +72,39 @@ public class GSONparser {
                         JsonArray jsonArray = returnedValueReturnedValue.getAsJsonArray();
                         Iterator itr = jsonArray.iterator();
                         Map<String,Map<String,String>> mapPojo =new HashMap<String, Map<String, String>>();
+
+
+                        JsonParser parserw = new JsonParser();
+                        JsonObject jsonObjectItr;
+
+
                         while(itr.hasNext()){
 
                             Object element = itr.next();
 
-                            JsonParser parserw = new JsonParser();
-                            JsonObject jsonObjectItr = parserw.parse(element.toString()).getAsJsonObject();
+                            //JsonParser parserw = new JsonParser();
+                            jsonObjectItr = parserw.parse(element.toString()).getAsJsonObject();
 
                             //JsonObject jsonObjectItr = ValueItr.getAsJsonObject();
                             //System.out.println(element + " ");
 
                             Map<String,String> mapForJson = new HashMap<String, String>();
 
-                            mapForJson.put("Name", jsonObjectItr.get("Name").toString().replaceAll("\"",""));
-                            //System.out.println("Name = "  + mapForJson.get("Name"));
-                            mapForJson.put("Guid",jsonObjectItr.get("Guid").toString().replaceAll("\"",""));
-                            mapForJson.put("__type",jsonObjectItr.get("__type").toString().replaceAll("\"",""));
-                            mapPojo.put(jsonObjectItr.get("Name").toString().replaceAll("\"",""),mapForJson);
+                            if(jsonObjectItr.get("Name")!=null) {
+                                mapForJson.put("Name", jsonObjectItr.get("Name").toString().replaceAll("\"", ""));
+                                //System.out.println("Name = "  + mapForJson.get("Name"));
+                                mapForJson.put("Guid", jsonObjectItr.get("Guid").toString().replaceAll("\"", ""));
+                                mapForJson.put("__type", jsonObjectItr.get("__type").toString().replaceAll("\"", ""));
+                                mapPojo.put(jsonObjectItr.get("Name").toString().replaceAll("\"", ""), mapForJson);
+                            }
+                           if(jsonObjectItr.get("WorkflowName")!=null){
+                               mapForJson.put("WorkflowName", jsonObjectItr.get("WorkflowName").toString().replaceAll("\"", ""));
+                               //System.out.println("Name = "  + mapForJson.get("Name"));
+                               mapForJson.put("BatchGuid", jsonObjectItr.get("BatchGuid").toString().replaceAll("\"", ""));
+                               mapForJson.put("BatchId", jsonObjectItr.get("BatchId").toString().replaceAll("\"", ""));
+                               mapPojo.put(jsonObjectItr.get("BatchId").toString().replaceAll("\"", ""), mapForJson);
 
+                           }
 
                         }
                         pojo.setMap(mapPojo);

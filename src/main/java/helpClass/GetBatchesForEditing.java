@@ -14,14 +14,15 @@ public class GetBatchesForEditing {
     }
 
     public InitializePOJO GetBatchesForEditingMethod() {
-        System.out.println("GetBatchesForEditing Help Class");
+        System.out.println("GetBatchesForEditingTest Help Class");
 
         String nameMethod = "GetBatchesForEditingResult";
 
 
         URLMethods methods = new URLMethods();
-        String url = methods.getUrlGetBatchesForEditing("0","0");
 
+        String url = methods.getUrlGetBatchesForEditing("0","0");
+        System.out.println(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
 

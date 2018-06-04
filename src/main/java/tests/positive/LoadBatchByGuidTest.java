@@ -1,6 +1,7 @@
 package tests.positive;
 
 import helpClass.*;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,7 +9,8 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-public class AddBatchImageTest {
+public class LoadBatchByGuidTest {
+
 
     static Initialize initialize ;
     static InitializePOJO pojo ;
@@ -16,11 +18,11 @@ public class AddBatchImageTest {
     static GetWorkflows getWorkflows;
     static InitializePOJO getWorkflowPOJO;
 
-    static CreateBatch createBatch;
-    static InitializePOJO createBatchPOJO;
+    static GetBatches getBatches;
+    static InitializePOJO getBathcesPOJO;
 
-    static AddBatchImage addBatchImage;
-    static InitializePOJO addBatchImagePOJO;
+    static LoadBatchByGuid loadBatchByGuid;
+    static InitializePOJO loadBatchByGuidPOJO;
 
     static Deinitialize deinitialize;
     static InitializePOJO deinitializePOJO;
@@ -34,15 +36,21 @@ public class AddBatchImageTest {
         getWorkflows = new GetWorkflows(pojo.getCookie());
         getWorkflowPOJO = getWorkflows.getWorkflowsMethod();
 
-        createBatch = new CreateBatch(pojo.getCookie(), getWorkflowPOJO.getMap().get("TEST_REST_API").get("Guid"));
-        createBatchPOJO = createBatch.createBatchMethod();
+        getBatches = new GetBatches(pojo.getCookie(),getWorkflowPOJO.getMap().get("TEST_REST_API").get("Guid"));
+        getBathcesPOJO = getBatches.getBatchesMethod("0","0");
+
+
     }
 
     @Test
-    public void addBatchImageTestMethod(){
+    public void GetBatchesForEditing(){
 
-        addBatchImage = new AddBatchImage(pojo.getCookie(), getWorkflowPOJO.getMap().get("TEST_REST_API").get("Guid"));
-        addBatchImagePOJO = addBatchImage.AddBatchImageMethod();
+
+        // необходимо указать id батча готового к редактированию (get("2"))
+       loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBathcesPOJO.getMap().get("2").get("BatchGuid"));
+       loadBatchByGuidPOJO = loadBatchByGuid.LoadBatchByGuidMethod();
+        Assert.assertEquals(loadBatchByGuidPOJO.getDocAlphaResponseCode(),"101");
+
 
     }
 
@@ -55,5 +63,6 @@ public class AddBatchImageTest {
         System.out.println("End Deinitialize at : " + new Date());
 
     }
+
 
 }

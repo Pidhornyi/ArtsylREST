@@ -1,6 +1,7 @@
 package tests.positive;
 
 import helpClass.*;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,7 +9,8 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-public class AddBatchImageTest {
+public class GetBatchesForEditingTest {
+
 
     static Initialize initialize ;
     static InitializePOJO pojo ;
@@ -16,11 +18,8 @@ public class AddBatchImageTest {
     static GetWorkflows getWorkflows;
     static InitializePOJO getWorkflowPOJO;
 
-    static CreateBatch createBatch;
-    static InitializePOJO createBatchPOJO;
-
-    static AddBatchImage addBatchImage;
-    static InitializePOJO addBatchImagePOJO;
+    static GetBatchesForEditing getBatchesForEditing;
+    static InitializePOJO getBatchesForEditingPOJO;
 
     static Deinitialize deinitialize;
     static InitializePOJO deinitializePOJO;
@@ -34,15 +33,16 @@ public class AddBatchImageTest {
         getWorkflows = new GetWorkflows(pojo.getCookie());
         getWorkflowPOJO = getWorkflows.getWorkflowsMethod();
 
-        createBatch = new CreateBatch(pojo.getCookie(), getWorkflowPOJO.getMap().get("TEST_REST_API").get("Guid"));
-        createBatchPOJO = createBatch.createBatchMethod();
+
     }
 
     @Test
-    public void addBatchImageTestMethod(){
+    public void GetBatchesForEditing(){
 
-        addBatchImage = new AddBatchImage(pojo.getCookie(), getWorkflowPOJO.getMap().get("TEST_REST_API").get("Guid"));
-        addBatchImagePOJO = addBatchImage.AddBatchImageMethod();
+        getBatchesForEditing = new GetBatchesForEditing(pojo.getCookie());
+        getBatchesForEditingPOJO = getBatchesForEditing.GetBatchesForEditingMethod();
+        Assert.assertEquals(getBatchesForEditingPOJO.getDocAlphaResponseCode(),"101");
+
 
     }
 
