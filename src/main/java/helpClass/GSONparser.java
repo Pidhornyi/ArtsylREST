@@ -31,7 +31,8 @@ public class GSONparser {
         InitializePOJO pojo = new InitializePOJO();
 
         //String element = response.getBody().toString();
-        System.out.println("response test = " + response.getBody().asString());
+
+        System.out.println("response from server = " + response.getBody().asString());
         JSONObject jsonObject1 = new JSONObject(response.getBody().asString());
         JsonElement jsonTree =  parser.parse(String.valueOf(jsonObject1));
 

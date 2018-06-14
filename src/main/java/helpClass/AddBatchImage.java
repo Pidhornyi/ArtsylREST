@@ -4,6 +4,7 @@ import com.jayway.restassured.internal.RestAssuredResponseImpl;
 import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
 
+import org.omg.CORBA.Request;
 import pojo.InitializePOJO;
 
 
@@ -19,9 +20,8 @@ public class AddBatchImage {
 
     private Cookies cookies;
     private String guidWorkflow;
-    public FileInputStream file;
-    String test ="" ;
-    File length;
+    public File file;
+
     public AddBatchImage(Cookies cookies, String guidWorkflow){
         this.cookies=cookies;
         this.guidWorkflow = guidWorkflow;
@@ -31,34 +31,24 @@ public class AddBatchImage {
         System.out.println("AddBatchImage Help Class");
 
         String nameMethod = "AddBatchImageResult";
-        String batchName = "TestPDF.Pdf";
-        int readBytes;
+        String fileName = "TestPDF.pdf";
+        URLMethods methods = new URLMethods();
 
+        String url = methods.getUrlAddBatchImage() + fileName;
 
 
         try {
-            length = new File("src/main/resources/TestPDF.Pdf");
-            file = new FileInputStream("src/main/resources/TestPDF.Pdf");
-           readBytes=file.read();
-            while(readBytes!=-1){
-                test += readBytes;
-                readBytes = file.read();
-            }
-            System.err.println("test = " + test);
 
-           // OutputStream data = new ByteArrayOutputStream(String.valueOf(file)));
+            file = new File("src/main/resources/TestPDF.Pdf");
 
-
-        } catch (IOException e) {
-            System.err.println("Error: Test file is missed!");
+            } catch (Exception e) {
+            System.err.println("Error: Test file is missed !   " + e);
         }
 
-        URLMethods methods = new URLMethods();
-        System.out.println("))))))))))))))))))))))) " + String.valueOf(length.length()));
-        String url = methods.getUrlAddBatchImage(String.valueOf(length.length()),batchName);
-        System.out.println("))))))))))))))))))))))) " + String.valueOf(file));
 
-        Response response = given().cookie(String.valueOf(cookies)).given().content(file).when().get(url);
+
+        Response response = given().cookie(String.valueOf(cookies)).multiPart(file).when().post(url);
+
 
         System.out.println("))))))))))))))))))))))) " + response.toString());
 

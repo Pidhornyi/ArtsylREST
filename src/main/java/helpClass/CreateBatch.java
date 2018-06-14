@@ -24,6 +24,7 @@ public class CreateBatch {
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlCreateBatch(guidWorkflow);
+        System.out.println(url);
 
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);

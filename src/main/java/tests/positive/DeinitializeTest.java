@@ -2,6 +2,7 @@ package tests.positive;
 
 import helpClass.Deinitialize;
 import helpClass.Initialize;
+import org.json.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -19,6 +20,7 @@ public class DeinitializeTest {
 
     @BeforeMethod
     public void Intitalize(){
+
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 

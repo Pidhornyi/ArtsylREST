@@ -45,4 +45,29 @@
 
     </test>
 
+
+    <test name="Test7">
+        <classes>
+            <class name="tests.positive.GetBatchesForEditingTest" />
+        </classes>
+
+    </test>
+
+
+    <test name="Test8">
+        <classes>
+            <class name="tests.positive.CreateBatchTest" />
+        </classes>
+
+    </test>
+
+    <test name="Test9">
+        <classes>
+            <class name="tests.positive.LoadBatchByGuidTest" />
+        </classes>
+
+    </test>
+
+
+
 </suite>
