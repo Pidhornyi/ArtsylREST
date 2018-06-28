@@ -4,6 +4,8 @@ package helpClass;
 import com.jayway.restassured.response.Response;
 import pojo.InitializePOJO;
 
+import java.util.*;
+
 import static com.jayway.restassured.RestAssured.get;
 
 
@@ -11,14 +13,22 @@ public class Test {
 
     public static void main(String args[]){
 
-        URLMethods methods = new URLMethods();
-        String dein = methods.getUrlDeinitialize();
 
-        Response res = get(dein);
 
-        GSONparser gsoNparser = new GSONparser(res,"DeinitializeResult");
-        InitializePOJO pojo = gsoNparser.parser();
-        System.out.println( pojo);
+        HashSet<String> myHashSet = new HashSet<String>();
+        myHashSet.add("Россия");
+        myHashSet.add("Франция");
+        myHashSet.add("Гондурас");
+        myHashSet.add("Кот-Д'Ивуар"); // любимая страна всех котов
+
+        // Получим размер HashSet
+        myHashSet.iterator();
+
+
+
+        // check set values
+        System.out.println("Set values: " + myHashSet.iterator());
+        System.out.println("Set values: " + myHashSet);
 
     }
 }

@@ -19,7 +19,7 @@ public class CreateBatch {
     public InitializePOJO createBatchMethod() {
         System.out.println("CreateBatch Help Class");
 
-        String nameMethod = "CreateBatchResult";
+        String nameMethod = InitializePOJO.getCreateBatchResult();
 
 
         URLMethods methods = new URLMethods();

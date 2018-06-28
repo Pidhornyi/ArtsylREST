@@ -9,7 +9,7 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-public class AddBatchImageTest {
+public class SendBatchTest {
 
     static Initialize initialize ;
     static InitializePOJO pojo ;
@@ -23,39 +23,53 @@ public class AddBatchImageTest {
     static AddBatchImage addBatchImage;
     static InitializePOJO addBatchImagePOJO;
 
+    static SendBatch sendBatch;
+    static InitializePOJO sendBatchPOJO;
+
+
     static Deinitialize deinitialize;
     static InitializePOJO deinitializePOJO;
 
-
+    //Initialize
     @BeforeMethod
     public void Initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
+
 
         getWorkflows = new GetWorkflows(pojo.getCookie());
         getWorkflowPOJO = getWorkflows.getWorkflowsMethod();
 
         createBatch = new CreateBatch(pojo.getCookie(), getWorkflowPOJO.getMapMap().get("1").get("WorkflowGuid"));
         createBatchPOJO = createBatch.createBatchMethod();
-    }
-
-    @Test
-    public void addBatchImageTestMethod(){
 
         addBatchImage = new AddBatchImage(pojo.getCookie());
         addBatchImagePOJO = addBatchImage.AddBatchImageMethod();
-
-
     }
+
+
+    @Test
+    public void SendBatch(){
+        System.out.println("Start SendBatch Test at : " + new Date());
+
+        sendBatch = new SendBatch(pojo.getCookie());
+        sendBatchPOJO = sendBatch.sendBatchMethod();
+        System.out.println("massage = " + sendBatchPOJO.getMessage());
+        Assert.assertEquals(sendBatchPOJO.getDocAlphaResponseCode(), "101");
+        System.out.println("End Reinitialize Test at : " + new Date());
+    }
+
+
 
 
     @AfterMethod
     public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
-        deinitialize = new Deinitialize(pojo.getCookie());
+        deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();
-        System.out.println("End Deinitialize at : " + new Date());
-
+        System.out.println("massage = " + deinitializePOJO.getMessage());
+        Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
+        System.out.println("End Deinitialize at " + new Date());
     }
 
 }

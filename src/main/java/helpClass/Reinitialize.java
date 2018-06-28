@@ -16,7 +16,7 @@ public class Reinitialize {
 
     public InitializePOJO reinitializeMethod(){
         System.out.println("Start Reinitialize Help Class");
-        String nameMethod = "ReinitializeResult";
+        String nameMethod = InitializePOJO.getReinitializeResult();
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlReinitialize(ReturnedValue);

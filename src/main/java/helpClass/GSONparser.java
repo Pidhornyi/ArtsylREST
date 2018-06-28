@@ -1,130 +1,102 @@
 package helpClass;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.jayway.restassured.response.Response;
-
-
+import org.json.JSONArray;
 import org.json.JSONObject;
 import pojo.InitializePOJO;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+
 public class GSONparser {
     private String nameMethood;
     private Response response;
+    Map<String, String> map = new HashMap<String, String>();
+    Map<String, Map<String, String>> mapMap = new HashMap<String, Map<String, String>>();
 
-    public GSONparser(Response response,String nameMethood) {
+    public GSONparser(Response response, String nameMethood) {
         this.response = response;
-        this.nameMethood=nameMethood;
+        this.nameMethood = nameMethood;
 
     }
 
-    public InitializePOJO parser()  {
-       // System.out.println(response.getBody().asString());
-        System.out.println("Start parse ");
-        JsonParser parser = new JsonParser();
+    public InitializePOJO parser() {
+        // System.out.println(response.getBody().asString());
         InitializePOJO pojo = new InitializePOJO();
+        try {
+            System.out.println("Start parse ");
+            // JsonParser parser = new JsonParser();
 
-        //String element = response.getBody().toString();
-
-        System.out.println("response from server = " + response.getBody().asString());
-        JSONObject jsonObject1 = new JSONObject(response.getBody().asString());
-        JsonElement jsonTree =  parser.parse(String.valueOf(jsonObject1));
-
-
-      //  System.out.println(jsonTree.isJsonObject());
-      //  System.out.println(jsonTree);
+            Map<String, String> mapForJson = new HashMap<String, String>();
 
 
-        if (jsonTree.isJsonObject()) {
-            JsonObject jsonObject = jsonTree.getAsJsonObject();
+            System.out.println("response from server = " + response.getBody().asString());
+            JSONObject jsonObject0 = new JSONObject(response.getBody().asString());
 
-            pojo.setCookie(response.getDetailedCookies());
-
-            JsonElement returnedValue = jsonObject.get(nameMethood);
-          //  System.out.println("nameMethood = "+ nameMethood);
-
-            if (returnedValue.isJsonObject()) {
-
-               // System.out.println("returnedValue = "+ returnedValue + " ***  returnedValue.toString = " + returnedValue.toString());
-                JsonObject jsonObject2 = returnedValue.getAsJsonObject();
-
-               // System.out.println(jsonObject2.get("DocAlphaResponseCode"));
-                pojo.setDocAlphaResponseCode(jsonObject2.get("DocAlphaResponseCode").toString());
-              //  System.out.println(jsonObject2.get("DocAlphaResponseCode").toString());
-                pojo.setMessage(jsonObject2.get("Message").toString());
-                System.out.println("returnedValue = " + jsonObject2.get("ReturnedValue").toString()  );
-                pojo.setReturnedValue(jsonObject2.get("ReturnedValue").toString());
+            JSONObject jsonObject1 = jsonObject0.getJSONObject(nameMethood);
 
 
-
-                try {
-                    //String temp = jsonObject2.get("ReturnedValue").toString().replaceAll("\\[" + "\\]","");
-                    JsonElement returnedValueReturnedValue = jsonObject2.get("ReturnedValue");
-                    System.out.println("isJsonArray = " + returnedValueReturnedValue.isJsonArray() );
-
-
-                    if(returnedValueReturnedValue.isJsonArray()){
-                        JsonArray jsonArray = returnedValueReturnedValue.getAsJsonArray();
-                        Iterator itr = jsonArray.iterator();
-                        Map<String,Map<String,String>> mapPojo =new HashMap<String, Map<String, String>>();
+            if (jsonObject1 instanceof JSONObject) {
+                // System.out.println(jsonObject2.get("DocAlphaResponseCode"));
+                System.out.println(" Doc Response = " + jsonObject1.get("DocAlphaResponseCode").toString());
+                pojo.setDocAlphaResponseCode(jsonObject1.get("DocAlphaResponseCode").toString());
+                //  System.out.println(jsonObject2.get("DocAlphaResponseCode").toString());
+                pojo.setMessage(jsonObject1.get("Message").toString());
+                //System.out.println("returnedValue = " + jsonObject1.get("ReturnedValue").toString());
+                pojo.setReturnedValue(jsonObject1.get("ReturnedValue").toString());
+                pojo.setCookie(response.getDetailedCookies());
 
 
-                        JsonParser parserw = new JsonParser();
-                        JsonObject jsonObjectItr;
+                if (jsonObject1.get("ReturnedValue").toString() != ("{}")) {
 
 
-                        while(itr.hasNext()){
+                    if (jsonObject1.get("ReturnedValue") instanceof JSONObject) {
 
-                            Object element = itr.next();
-
-                            //JsonParser parserw = new JsonParser();
-                            jsonObjectItr = parserw.parse(element.toString()).getAsJsonObject();
-
-                            //JsonObject jsonObjectItr = ValueItr.getAsJsonObject();
-                            //System.out.println(element + " ");
-
-                            Map<String,String> mapForJson = new HashMap<String, String>();
-
-                            if(jsonObjectItr.get("Name")!=null) {
-                                mapForJson.put("Name", jsonObjectItr.get("Name").toString().replaceAll("\"", ""));
-                                //System.out.println("Name = "  + mapForJson.get("Name"));
-                                mapForJson.put("Guid", jsonObjectItr.get("Guid").toString().replaceAll("\"", ""));
-                                mapForJson.put("__type", jsonObjectItr.get("__type").toString().replaceAll("\"", ""));
-                                mapPojo.put(jsonObjectItr.get("Name").toString().replaceAll("\"", ""), mapForJson);
-                            }
-                           if(jsonObjectItr.get("WorkflowName")!=null){
-                               mapForJson.put("WorkflowName", jsonObjectItr.get("WorkflowName").toString().replaceAll("\"", ""));
-                               //System.out.println("Name = "  + mapForJson.get("Name"));
-                               mapForJson.put("BatchGuid", jsonObjectItr.get("BatchGuid").toString().replaceAll("\"", ""));
-                               mapForJson.put("BatchId", jsonObjectItr.get("BatchId").toString().replaceAll("\"", ""));
-                               mapPojo.put(jsonObjectItr.get("BatchId").toString().replaceAll("\"", ""), mapForJson);
-
-                           }
+                        map = objectMap(jsonObject1.getJSONObject("ReturnedValue"));
+                        pojo.setMap(map);
+                    } else if (jsonObject1.get("ReturnedValue") instanceof JSONArray) {
+                        Map<String, Map<String, String>> tempMapMap = new HashMap<String, Map<String, String>>();
+                        int q = ((JSONArray) jsonObject1.get("ReturnedValue")).length();
+                        System.out.println(" length = " + q);
+                        //первый ключь - это индекс массива
+                        for (Integer i = 0; i < q; i++) {
+                            Map<String, String> tempMap;
+                            JSONObject temp = ((JSONArray) jsonObject1.get("ReturnedValue")).getJSONObject(i);
+                            tempMap = objectMap(temp);
+                            String key = String.valueOf(i);
+                            mapMap.put(key, tempMap);
 
                         }
-                        pojo.setMap(mapPojo);
-
-                        //System.out.println("ForRestApi = "  + pojo.getMap().get("ForRestAPI").toString());
-
-
+                        pojo.setMapMap(mapMap);
                     }
-                }
-                catch(NullPointerException e){
-                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!" + e);
+
                 }
 
             }
 
-
         }
-        System.out.println("End parse pojo = "+ pojo.getMap() );
+            catch (Exception e ){
+            System.err.println("Exception !!!" );
+                System.err.println(e);
+            }
 
-        return pojo;
+            return pojo;
+        }
+
+
+    public Map objectMap(JSONObject jsonObject) {
+
+        Map<String, String> tempMap = new HashMap<String, String>();
+        Iterator<String> keysItr = jsonObject.keys();
+        while (keysItr.hasNext()) {
+            String key = keysItr.next();
+            String value = jsonObject.get(key).toString();
+
+            tempMap.put(key, value);
+        }
+        return tempMap;
     }
+
 }

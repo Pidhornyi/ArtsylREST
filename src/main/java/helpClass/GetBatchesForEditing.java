@@ -16,7 +16,7 @@ public class GetBatchesForEditing {
     public InitializePOJO GetBatchesForEditingMethod() {
         System.out.println("GetBatchesForEditingTest Help Class");
 
-        String nameMethod = "GetBatchesForEditingResult";
+        String nameMethod = InitializePOJO.getGetBatchesForEditingResult();
 
 
         URLMethods methods = new URLMethods();

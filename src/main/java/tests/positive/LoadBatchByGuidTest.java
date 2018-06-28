@@ -1,5 +1,6 @@
 package tests.positive;
 
+
 import helpClass.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -36,18 +37,42 @@ public class LoadBatchByGuidTest {
         getWorkflows = new GetWorkflows(pojo.getCookie());
         getWorkflowPOJO = getWorkflows.getWorkflowsMethod();
 
-        getBatches = new GetBatches(pojo.getCookie(),getWorkflowPOJO.getMap().get("TEST_REST_API").get("Guid"));
-        getBathcesPOJO = getBatches.getBatchesMethod("0","0");
+        for(int i=0;i<getWorkflowPOJO.getMapMap().size();i++){
+            String temp = String.valueOf(i);
+            System.out.println(" i = "+temp);
+            System.out.println(" true/false = "+getWorkflowPOJO.getMapMap().get(temp).get("WorkflowName").equals("TEST_REST_API"));
+            System.out.println(getWorkflowPOJO.getMapMap().get(temp).get("WorkflowName"));
+            if(getWorkflowPOJO.getMapMap().get(temp).get("WorkflowName").equals("TEST_REST_API")){
+                getBatches = new GetBatches(pojo.getCookie(),getWorkflowPOJO.getMapMap().get(temp).get("WorkflowGuid"));
+
+                System.out.println(" ii = "+getWorkflowPOJO.getMapMap().get(temp).get("WorkflowGuid"));
+            }
+
+        }
+
+        getBathcesPOJO = getBatches.getBatchesMethod("0","1");
 
 
     }
 
     @Test
-    public void GetBatchesForEditing(){
+    public void LoadBatchByGuid(){
 
 
         // необходимо указать id батча готового к редактированию (get("2"))
-       loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBathcesPOJO.getMap().get("2").get("BatchGuid"));
+        for (int i =0;i<getBathcesPOJO.getMapMap().size();i++) {
+            if (getBathcesPOJO.getMapMap().get(String.valueOf(i)).get(InitializePOJO.getBatchOwnerStationName()).equals("0")) {
+               // System.out.println(getBathcesPOJO.getMapMap().get(String.valueOf(i)).get(InitializePOJO.getBatchOwnerStationName()));
+               // System.out.println(getBathcesPOJO.getMapMap().get(String.valueOf(i)).get(InitializePOJO.getBatchId()));
+              //  String temp = getBathcesPOJO.getMapMap().get(String.valueOf(i)).get(InitializePOJO.getBatchOwnerStationName());
+
+                if ( getBathcesPOJO.getMapMap().get(String.valueOf(i)).get(InitializePOJO.getDocumentsCount())!="0") {
+                    loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(), getBathcesPOJO.getMapMap().get(String.valueOf(i)).get("BatchGuid"));
+                    break;
+                }
+            }
+        }
+
        loadBatchByGuidPOJO = loadBatchByGuid.LoadBatchByGuidMethod();
         Assert.assertEquals(loadBatchByGuidPOJO.getDocAlphaResponseCode(),"101");
 

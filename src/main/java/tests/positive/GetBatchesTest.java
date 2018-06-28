@@ -10,7 +10,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pojo.InitializePOJO;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 public class GetBatchesTest {
 
@@ -39,19 +42,14 @@ public class GetBatchesTest {
     @Test
     public void GetBatches(){
         // необходимо указать параметры Name и Guid для конкретного Workflow
-        getBatches = new GetBatches(pojo.getCookie(),getWorkflowsPojo.getMap().get("TEST_REST_API").get("Guid"));
-
-        System.out.println(getWorkflowsPojo.getMap().get("TEST_REST_API").get("Guid"));
-
+        // Attention!!!!! Customs parameters
+        getBatches = new GetBatches(pojo.getCookie(),getWorkflowsPojo.getMapMap().get("1").get("WorkflowGuid"));
         getBatchesPOJO = getBatches.getBatchesMethod("0","1");
        Assert.assertEquals(getBatchesPOJO.getDocAlphaResponseCode(),"101");
         System.out.println("getBatchesPOJO = " + getBatchesPOJO.toString());
 
 
     }
-
-
-
 
     //Deinitialize
     @AfterMethod

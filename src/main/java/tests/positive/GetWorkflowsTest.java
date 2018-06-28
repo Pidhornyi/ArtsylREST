@@ -42,9 +42,10 @@ public class GetWorkflowsTest {
         System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getDocAlphaResponseCode());
         System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMessage());
         System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getReturnedValue());
-        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMap().keySet());
-        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMap().get("ForRestTest").get("Guid"));
-        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getDocAlphaResponseCode());
+        System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMapMap().get("1").get("WorkflowName"));
+        //System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMap().keySet());
+      //  System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getMapMap().get("TEST_REST_API").get("WorkflowGuid"));
+        //System.out.println( "!!! getWorkflowPOJO =" + getWorkflowPOJO.getDocAlphaResponseCode());
         System.out.println("End Workflow Test at " + new Date());
         System.out.println("Test passed ");
 

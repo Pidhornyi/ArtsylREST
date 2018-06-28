@@ -19,12 +19,12 @@ public class LoadBatchByGuid {
     public InitializePOJO LoadBatchByGuidMethod() {
         System.out.println("LoadBatchByGuid Help Class");
 
-        String nameMethod = "LoadBatchByGuidResult";
+        String nameMethod = InitializePOJO.getLoadBatchByGuidResult();
 
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlLoadBatchByGuid(guidBatch);
-
+        System.out.println(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
 

@@ -11,10 +11,13 @@ public class Initialize {
 
 
   public  InitializePOJO InitializeHelpMethod() {
-        String nameMethod = "InitializeResult";
+        System.out.println("Start Initialize Help Class");
+        String nameMethod = InitializePOJO.getInitializeResult();
         URLMethods methodsUrl = new URLMethods();
         String url = methodsUrl.getUrlInitialize();
-        System.out.println("Start Initialize Help Class");
+        System.out.println(url);
+
+
 
         Response response = get(url);
         GSONparser gsoNparser = new GSONparser(response,nameMethod);

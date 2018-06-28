@@ -36,7 +36,7 @@ public class GetSessionGuidTest {
 
         System.out.println("Start GetSessionGuid Test at : " + new Date());
 
-        String returnedValue = pojo.getReturnedValue().replaceAll("\"","");
+        //String returnedValue = pojo.getReturnedValue().replaceAll("\"","");
         getSessionGuid = new GetSessionGuid(pojo.getCookie());
         getSessionGuidPOJO = getSessionGuid.GetSessionGuidMethod();
         System.out.println(getSessionGuidPOJO.getReturnedValue());

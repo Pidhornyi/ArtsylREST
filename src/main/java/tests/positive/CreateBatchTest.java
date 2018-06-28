@@ -39,7 +39,7 @@ public class CreateBatchTest {
     @Test
     public void CreatBatch(){
 
-       createBatch = new CreateBatch(pojo.getCookie(),getWorkflowPOJO.getMap().get("TEST_REST_API").get("Guid"));
+       createBatch = new CreateBatch(pojo.getCookie(),getWorkflowPOJO.getMapMap().get("1").get("WorkflowGuid"));
        createBatchPOJO = createBatch.createBatchMethod();
         Assert.assertEquals(createBatchPOJO.getDocAlphaResponseCode(),"102");
 

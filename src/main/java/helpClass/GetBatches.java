@@ -13,19 +13,19 @@ public class GetBatches {
     private Cookies cookies;
     public GetBatches(Cookies cookies, String guid){
 
-        this.cookies=cookies;
-   this.workFlowGuid=guid;
+         this.cookies=cookies;
+         this.workFlowGuid=guid;
     }
 
     public InitializePOJO getBatchesMethod(String takeFrom, String count){
 
 
-        String nameMethod = "GetBatchesResult";
+        String nameMethod = InitializePOJO.getGetBatchesResult();
 
 
         URLMethods methods = new URLMethods();
         String urlGetBatches = methods.getUrlGetBatches( takeFrom, count, workFlowGuid);
-        System.out.println("++++++++++++++++ " + urlGetBatches);
+        System.out.println(urlGetBatches);
 
         // Запрос вместе с подставленной cookie
         Response getBatches = given().cookie(String.valueOf(cookies)).when().get(urlGetBatches);

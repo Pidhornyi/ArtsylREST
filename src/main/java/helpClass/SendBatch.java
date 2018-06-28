@@ -20,12 +20,12 @@ public class SendBatch {
     public InitializePOJO sendBatchMethod() {
         System.out.println("SendBatch Help Class");
 
-        String nameMethod = "SendBatchResult";
+        String nameMethod = InitializePOJO.getSendBatchResult();
 
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlSendBatch();
-
+        System.out.println(url);
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);

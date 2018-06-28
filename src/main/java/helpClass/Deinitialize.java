@@ -15,15 +15,13 @@ public class Deinitialize {
     public Deinitialize(Cookies cookies){
         this.cookies=cookies;
     }
-
      public InitializePOJO deinitializeMethod() {
          System.out.println("Start Deinitialize Help Class");
-
-        String nameMethod = "DeinitializeResult";
-
+         String nameMethod = InitializePOJO.getDeinitializeResult();
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlDeinitialize();
+         System.out.println(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
          GSONparser gsoNparser = new GSONparser(response,nameMethod);

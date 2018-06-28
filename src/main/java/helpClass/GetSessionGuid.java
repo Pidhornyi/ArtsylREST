@@ -16,12 +16,12 @@ public class GetSessionGuid {
     public InitializePOJO GetSessionGuidMethod() {
         System.out.println("Start GetSessionGuid Help Class");
 
-        String nameMethod = "GetSessionGuidResult";
+        String nameMethod = InitializePOJO.getGetSessionGuidResult();
 
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlGetSessionGuid();
-
+        System.out.println(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
 

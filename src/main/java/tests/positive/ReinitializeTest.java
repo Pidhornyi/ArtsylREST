@@ -36,8 +36,8 @@ public class ReinitializeTest {
         System.out.println("Start Reinitialize Test at : " + new Date());
 
 
-        String returnedValue = pojo.getReturnedValue().replaceAll("\"","");
-        reinitialize = new Reinitialize(pojo.getCookie(),returnedValue);
+        //String returnedValue = pojo.getReturnedValue().replaceAll("\"","");
+        reinitialize = new Reinitialize(pojo.getCookie(),pojo.getReturnedValue());
         reinitializePOJO = reinitialize.reinitializeMethod();
         System.out.println("massage = " + reinitializePOJO.getMessage());
         Assert.assertEquals(reinitializePOJO.getDocAlphaResponseCode(), "101");

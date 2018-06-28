@@ -21,12 +21,12 @@ public class AddBatchMetadata {
     public InitializePOJO AddBatchMetadataMethod() {
         System.out.println("AddBatchMetadata Help Class");
 
-        String nameMethod = "AddBatchMetadataResult";
+        String nameMethod = InitializePOJO.getAddBatchMetadataResult();
 
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlAddBatchMetadata(name , value);
-
+        System.out.println(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
 

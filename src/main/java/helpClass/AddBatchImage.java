@@ -19,24 +19,23 @@ public class AddBatchImage {
 
 
     private Cookies cookies;
-    private String guidWorkflow;
+   ;
     public File file;
 
-    public AddBatchImage(Cookies cookies, String guidWorkflow){
+    public AddBatchImage(Cookies cookies){
         this.cookies=cookies;
-        this.guidWorkflow = guidWorkflow;
+
     }
 
     public InitializePOJO AddBatchImageMethod() {
         System.out.println("AddBatchImage Help Class");
 
-        String nameMethod = "AddBatchImageResult";
+        String nameMethod = InitializePOJO.getAddBatchImage();
         String fileName = "TestPDF.pdf";
         URLMethods methods = new URLMethods();
 
         String url = methods.getUrlAddBatchImage() + fileName;
-
-
+        System.out.println(url);
         try {
 
             file = new File("src/main/resources/TestPDF.Pdf");
@@ -50,7 +49,7 @@ public class AddBatchImage {
         Response response = given().cookie(String.valueOf(cookies)).multiPart(file).when().post(url);
 
 
-        System.out.println("))))))))))))))))))))))) " + response.toString());
+        System.out.println("AddImage response " + response.toString());
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();

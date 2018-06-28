@@ -19,7 +19,7 @@ public class GetBatchDocuments {
     public InitializePOJO GetBatchDocumentsMethod() {
         System.out.println("GetBatchDocuments Help Class");
 
-        String nameMethod = "GetBatchDocumentsResult";
+        String nameMethod = InitializePOJO.getGetBatchDocumentsResult();
 
 
         URLMethods methods = new URLMethods();

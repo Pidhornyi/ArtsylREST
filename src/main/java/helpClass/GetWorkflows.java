@@ -16,18 +16,18 @@ public class GetWorkflows {
 
     public InitializePOJO getWorkflowsMethod(){
 
-        String nameMethod = "GetWorkflowsResult";
+        String nameMethod = InitializePOJO.getGetWorkflowsResult();
 
 
         URLMethods methods = new URLMethods();
         String urlWorkflow = methods.getUrlGetWorkflows();
-
+        System.out.println(urlWorkflow);
         // Запрос вместе с подставленной cookie
-        Response getworkflow = given().cookie(String.valueOf(cookies)).when().get(urlWorkflow);
-        GSONparser jsoNparseWorkflow = new GSONparser(getworkflow, nameMethod);
-        InitializePOJO pojoWorkflow = jsoNparseWorkflow.parser();
+        Response getworkflows = given().cookie(String.valueOf(cookies)).when().get(urlWorkflow);
+        GSONparser jsoNparseWorkflow = new GSONparser(getworkflows, nameMethod);
+        InitializePOJO pojoWorkflows = jsoNparseWorkflow.parser();
 
 
-        return pojoWorkflow;
+        return pojoWorkflows;
     }
 }
