@@ -15,6 +15,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+
+
+/*
+            Success = 101,
+            Created = 102,
+            Failed = 103,
+            InvalidInput = 104,
+            Forbidden = 105,
+            Authorized = 106
+
+Steps:
+1)Initialize
+2)GetWorkflow
+3)GetBatches
+4)Deinitialize
+ */
+
 public class GetBatchesTest {
 
     static  Initialize initialize;

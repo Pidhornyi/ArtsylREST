@@ -9,6 +9,23 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
+
+/*
+            Success = 101,
+            Created = 102,
+            Failed = 103,
+            InvalidInput = 104,
+            Forbidden = 105,
+            Authorized = 106
+
+Steps:
+1)Initialize
+2)GetWorkflow
+3)CreateBatch
+4)AddBatchImage
+5)Deinitialize
+ */
+
 public class AddBatchImageTest {
 
     static Initialize initialize ;
@@ -44,7 +61,7 @@ public class AddBatchImageTest {
 
         addBatchImage = new AddBatchImage(pojo.getCookie());
         addBatchImagePOJO = addBatchImage.AddBatchImageMethod();
-
+        Assert.assertEquals(addBatchImagePOJO.getDocAlphaResponseCode(),"101");
 
     }
 

@@ -11,9 +11,9 @@ public class AddBatchMetadata {
     private Cookies cookies;
     private String name;
     private String value;
-    public AddBatchMetadata(Cookies cookies, String nameBatch, String value){
+    public AddBatchMetadata(Cookies cookies, String name, String value){
         this.cookies=cookies;
-        this.name=nameBatch;
+        this.name=name;
         this.value=value;
     }
 
