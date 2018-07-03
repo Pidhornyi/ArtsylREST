@@ -1,32 +1,46 @@
 package tests.positive;
 
 
-
-
-
 /*
-
-
-
-
-       Success = 101,
+            Success = 101,
             Created = 102,
             Failed = 103,
             InvalidInput = 104,
             Forbidden = 105,
             Authorized = 106
 
+            List of possible statuses:
+
+        IsRejected (change Boolean value to opposite)
+        ToDelete (change Boolean value to opposite)
+        IsApproved (change Boolean value to opposite)
+        IsEscalated (set ‘status’ to flag)
+        IsCommented (change Boolean value to opposite)
+        StructureIssue (change Boolean value to opposite)
+        MissingCriticalField (change Boolean value to opposite)
+        ViolatingRules (change Boolean value to opposite)
+        SupervisorAttention (change Boolean value to opposite)
+        RejectOther (change Boolean value to opposite)
+        IsForDesign (change Boolean value to opposite)
+        IsSentToReviewer (set ‘status’ to flag)
+        IsSentBackToApprover (change Boolean value to opposite)
+        IsRedirected (set ‘status’ to flag)
+
+
+
 Steps:
+
 1)Initialize
 2)GetWorkflow
 3)CreateBatch
 4)AddBatchImage
 5)SendBatch
-5.1) 10 seconds waiting
+5.1) 5-7 seconds waiting
 5.2) GetBatches
 6)LoadBatch (тот который был создан (последний))
-7)PostponeBatch
-
+7)GetBatchDocuments (взять guid документа)
+8)SetDocumentStatus
+9)Deinitialize
 
  */
 
@@ -40,7 +54,7 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-public class PostponeBatchTest {
+public class SetDocumentStatusTest {
 
 
     static Initialize initialize ;
@@ -64,8 +78,11 @@ public class PostponeBatchTest {
     static LoadBatchByGuid loadBatchByGuid;
     static InitializePOJO loadBatchByGuidPOJO;
 
-    static PostponeBatch postponeBatch;
-    static InitializePOJO postponeBatchPOJO;
+    static GetBatchDocuments getBatchDocuments;
+    static InitializePOJO getBatchDocumentsPOJO;
+
+    static SetDocumentStatus setDocumentStatus;
+    static InitializePOJO setDocumentStatusPOJO;
 
 
     static Deinitialize deinitialize;
@@ -73,7 +90,7 @@ public class PostponeBatchTest {
 
     //Initialize
     @BeforeMethod
-    public void initialize(){
+    public void Initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -93,7 +110,7 @@ public class PostponeBatchTest {
 
 // Важно указать время для распознавания !!!
         try {
-            Thread.sleep(15000);
+            Thread.sleep(10000);
         }catch (Exception e){
             System.err.println("Exception !!!");
             System.err.println(e);
@@ -108,26 +125,28 @@ public class PostponeBatchTest {
 
         loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBatchesPOJO.getMapMap().get("0").get(InitializePOJO.getBatchGuid()));
         loadBatchByGuidPOJO = loadBatchByGuid.LoadBatchByGuidMethod();
+
+        getBatchDocuments = new GetBatchDocuments(pojo.getCookie());
+        getBatchDocumentsPOJO = getBatchDocuments.GetBatchDocumentsMethod();
     }
 
 
     @Test
-    public void postponeBatch(){
-        System.out.println("Start postponeBatch Test at : " + new Date());
-        postponeBatch = new PostponeBatch(pojo.getCookie());
-        postponeBatchPOJO = postponeBatch.postponeBatchMethod();
+    public void SetDocumentStatusMethod(){
+        System.out.println("Start SetDocumentStatus Test at : " + new Date());
 
-
-        System.out.println("massage = " + postponeBatchPOJO.getMessage());
-        Assert.assertEquals(postponeBatchPOJO.getDocAlphaResponseCode(), "101");
-        System.out.println("End postponeBatch Test at : " + new Date());
+        setDocumentStatus = new SetDocumentStatus(pojo.getCookie(),getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"),"IsRedirected","IsCommented");
+        setDocumentStatusPOJO = setDocumentStatus.SetDocumentStatusMethod();
+        System.out.println("massage = " + setDocumentStatusPOJO.getMessage());
+        Assert.assertEquals(setDocumentStatusPOJO.getDocAlphaResponseCode(), "101");
+        System.out.println("End SetDocumentStatus Test at : " + new Date());
     }
 
 
 
 
     @AfterMethod
-    public void deinitialize(){
+    public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();
@@ -135,6 +154,8 @@ public class PostponeBatchTest {
         Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());
     }
+
+
 
 
 

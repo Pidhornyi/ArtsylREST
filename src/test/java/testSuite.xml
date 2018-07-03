@@ -68,6 +68,57 @@
 
     </test>
 
+    <test name="Test10">
+        <classes>
+            <class name="tests.positive.AddBatchImageTest" />
+        </classes>
+
+    </test>
+    <test name="Test11">
+        <classes>
+            <class name="tests.positive.AddBatchMetadataTest" />
+        </classes>
+
+    </test>
+    <test name="Test12">
+        <classes>
+            <class name="tests.positive.SendBatchTest" />
+        </classes>
+
+    </test>
+    <test name="Test13">
+        <classes>
+            <class name="tests.positive.GetBatchDocumentsTest" />
+        </classes>
+
+    </test>
+
+    <test name="Test14">
+        <classes>
+            <class name="tests.positive.PostponeBatchTest" />
+        </classes>
+
+    </test>
+    <test name="Test15">
+        <classes>
+            <class name="tests.positive.GetDocumentPageTest" />
+        </classes>
+
+    </test>
+    <test name="Test16">
+        <classes>
+            <class name="tests.positive.SetDocumentCommentTest" />
+        </classes>
+
+    </test>
+    <test name="Test17">
+        <classes>
+            <class name="tests.positive.SetDocumentStatusTest" />
+        </classes>
+
+    </test>
+
+
 
 
 </suite>

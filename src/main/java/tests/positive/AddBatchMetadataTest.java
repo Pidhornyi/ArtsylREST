@@ -64,7 +64,7 @@ public class AddBatchMetadataTest {
     }
 
     @Test
-    public void AddBatchMetadataTestMethud(){
+    public void AddBatchMetadataTestMethod(){
 
         addBatchMetadata = new AddBatchMetadata(pojo.getCookie(),"testName", "testValue");
         addBatchMetadataPOJO= addBatchMetadata.AddBatchMetadataMethod();

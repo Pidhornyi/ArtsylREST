@@ -5,6 +5,9 @@ import com.jayway.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import pojo.InitializePOJO;
+
+import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -31,8 +34,10 @@ public class GSONparser {
 
             Map<String, String> mapForJson = new HashMap<String, String>();
 
+           // InputStream stream = response.getBody().asInputStream();
 
             System.out.println("response from server = " + response.getBody().asString());
+          //  System.out.println(stream);
             JSONObject jsonObject0 = new JSONObject(response.getBody().asString());
 
             JSONObject jsonObject1 = jsonObject0.getJSONObject(nameMethood);

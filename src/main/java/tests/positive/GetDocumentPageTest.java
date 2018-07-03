@@ -2,31 +2,30 @@ package tests.positive;
 
 
 
-
-
-/*
-
-
-
-
-       Success = 101,
+ /*
+            Success = 101,
             Created = 102,
             Failed = 103,
             InvalidInput = 104,
             Forbidden = 105,
             Authorized = 106
 
+
+
 Steps:
+
+
 1)Initialize
 2)GetWorkflow
 3)CreateBatch
 4)AddBatchImage
 5)SendBatch
-5.1) 10 seconds waiting
+5.1) 5-7 seconds waiting
 5.2) GetBatches
 6)LoadBatch (тот который был создан (последний))
-7)PostponeBatch
-
+7)GetBatchDocuments (взять guid документа)
+8)GetDocumentPageTest
+9)Deinitialize
 
  */
 
@@ -40,11 +39,11 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-public class PostponeBatchTest {
+public class GetDocumentPageTest {
 
 
-    static Initialize initialize ;
-    static InitializePOJO pojo ;
+    static Initialize initialize;
+    static InitializePOJO pojo;
 
     static GetWorkflows getWorkflows;
     static InitializePOJO getWorkflowPOJO;
@@ -64,8 +63,11 @@ public class PostponeBatchTest {
     static LoadBatchByGuid loadBatchByGuid;
     static InitializePOJO loadBatchByGuidPOJO;
 
-    static PostponeBatch postponeBatch;
-    static InitializePOJO postponeBatchPOJO;
+    static GetBatchDocuments getBatchDocuments;
+    static InitializePOJO getBatchDocumentsPOJO;
+
+    static GetDocumentPage getDocumentPage;
+    static InitializePOJO getDocumentPagePOJO;
 
 
     static Deinitialize deinitialize;
@@ -73,7 +75,7 @@ public class PostponeBatchTest {
 
     //Initialize
     @BeforeMethod
-    public void initialize(){
+    public void Initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -93,7 +95,7 @@ public class PostponeBatchTest {
 
 // Важно указать время для распознавания !!!
         try {
-            Thread.sleep(15000);
+            Thread.sleep(10000);
         }catch (Exception e){
             System.err.println("Exception !!!");
             System.err.println(e);
@@ -108,26 +110,28 @@ public class PostponeBatchTest {
 
         loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBatchesPOJO.getMapMap().get("0").get(InitializePOJO.getBatchGuid()));
         loadBatchByGuidPOJO = loadBatchByGuid.LoadBatchByGuidMethod();
+
+        getBatchDocuments = new GetBatchDocuments(pojo.getCookie());
+        getBatchDocumentsPOJO = getBatchDocuments.GetBatchDocumentsMethod();
     }
 
 
     @Test
-    public void postponeBatch(){
-        System.out.println("Start postponeBatch Test at : " + new Date());
-        postponeBatch = new PostponeBatch(pojo.getCookie());
-        postponeBatchPOJO = postponeBatch.postponeBatchMethod();
+    public void GetDocumentPageMethod(){
+        System.out.println("Start GetDocumentPage Test at : " + new Date());
 
-
-        System.out.println("massage = " + postponeBatchPOJO.getMessage());
-        Assert.assertEquals(postponeBatchPOJO.getDocAlphaResponseCode(), "101");
-        System.out.println("End postponeBatch Test at : " + new Date());
+        getDocumentPage = new GetDocumentPage(pojo.getCookie(), getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"), "1");
+        getDocumentPagePOJO = getDocumentPage.getDocumentPageMethod();
+        System.out.println("massage = " + getDocumentPagePOJO.getMessage());
+         Assert.assertEquals(getDocumentPagePOJO.getDocAlphaResponseCode(), "101");
+        System.out.println("End GetDocumentPage Test at : " + new Date());
     }
 
 
 
 
     @AfterMethod
-    public void deinitialize(){
+    public void Deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();
@@ -135,6 +139,7 @@ public class PostponeBatchTest {
         Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());
     }
+
 
 
 

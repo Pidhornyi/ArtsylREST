@@ -82,7 +82,7 @@ public class GetBatchDocumentsTest {
 
 // Важно указать время для распознавания !!!
         try {
-            Thread.sleep(30000);
+            Thread.sleep(10000);
         }catch (Exception e){
             System.err.println("Exception !!!");
             System.err.println(e);

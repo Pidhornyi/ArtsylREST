@@ -61,7 +61,7 @@ public class AddBatchImageTest {
 
         addBatchImage = new AddBatchImage(pojo.getCookie());
         addBatchImagePOJO = addBatchImage.AddBatchImageMethod();
-        Assert.assertEquals(addBatchImagePOJO.getDocAlphaResponseCode(),"101");
+        Assert.assertEquals(addBatchImagePOJO.getDocAlphaResponseCode(),"102");
 
     }
 
