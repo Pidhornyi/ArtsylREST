@@ -5,7 +5,7 @@ import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
 
 import org.omg.CORBA.Request;
-import pojo.InitializePOJO;
+import main.java.pojo.InitializePOJO;
 
 
 import java.io.*;

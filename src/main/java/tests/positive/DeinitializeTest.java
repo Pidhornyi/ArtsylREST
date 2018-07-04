@@ -1,12 +1,12 @@
 package tests.positive;
 
+
 import helpClass.Deinitialize;
 import helpClass.Initialize;
-import org.json.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pojo.InitializePOJO;
+import main.java.pojo.InitializePOJO;
 
 import java.util.Date;
 
@@ -26,7 +26,7 @@ Steps:
 
 public class DeinitializeTest {
 
-    static  Initialize initialize;
+    static Initialize initialize;
     static InitializePOJO pojo;
     static Deinitialize deinitialize;
     static InitializePOJO deinitializePOJO;

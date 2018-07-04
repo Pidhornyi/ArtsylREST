@@ -1,13 +1,11 @@
 package helpClass;
 
-import com.google.gson.JsonParser;
+
 import com.jayway.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import pojo.InitializePOJO;
+import main.java.pojo.InitializePOJO;
 
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package pojo;
+package main.java.pojo;
 
 import com.jayway.restassured.response.Cookies;
 

@@ -2,7 +2,7 @@ package helpClass;
 
 import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
-import pojo.InitializePOJO;
+import main.java.pojo.InitializePOJO;
 
 import static com.jayway.restassured.RestAssured.given;
 

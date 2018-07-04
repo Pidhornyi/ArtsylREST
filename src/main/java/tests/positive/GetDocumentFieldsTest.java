@@ -1,6 +1,9 @@
 package tests.positive;
 
 
+
+
+
 /*
             Success = 101,
             Created = 102,
@@ -9,27 +12,7 @@ package tests.positive;
             Forbidden = 105,
             Authorized = 106
 
-            List of possible statuses:
-
-        IsRejected (change Boolean value to opposite)
-        ToDelete (change Boolean value to opposite)
-        IsApproved (change Boolean value to opposite)
-        IsEscalated (set ‘status’ to flag)
-        IsCommented (change Boolean value to opposite)
-        StructureIssue (change Boolean value to opposite)
-        MissingCriticalField (change Boolean value to opposite)
-        ViolatingRules (change Boolean value to opposite)
-        SupervisorAttention (change Boolean value to opposite)
-        RejectOther (change Boolean value to opposite)
-        IsForDesign (change Boolean value to opposite)
-        IsSentToReviewer (set ‘status’ to flag)
-        IsSentBackToApprover (change Boolean value to opposite)
-        IsRedirected (set ‘status’ to flag)
-
-
-
 Steps:
-
 1)Initialize
 2)GetWorkflow
 3)CreateBatch
@@ -38,23 +21,23 @@ Steps:
 5.1) 5-7 seconds waiting
 5.2) GetBatches
 6)LoadBatch (тот который был создан (последний))
-7)GetBatchDocuments (взять guid документа)
-8)SetDocumentStatus
+7)GetBatchDocuments (взять гуид документа)
+8)GetDocumentFields
 9)Deinitialize
-
  */
 
-
-
+import helpClass.*;
+import main.java.pojo.InitializePOJO;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import main.java.pojo.InitializePOJO;
-import helpClass.*;
+
 import java.util.Date;
 
-public class SetDocumentStatusTest {
+public class GetDocumentFieldsTest {
+
+
 
 
     static Initialize initialize ;
@@ -81,8 +64,8 @@ public class SetDocumentStatusTest {
     static GetBatchDocuments getBatchDocuments;
     static InitializePOJO getBatchDocumentsPOJO;
 
-    static SetDocumentStatus setDocumentStatus;
-    static InitializePOJO setDocumentStatusPOJO;
+    static GetDocumentFields getDocumentFields;
+    static InitializePOJO getDocumentsFieldsPOJO;
 
 
     static Deinitialize deinitialize;
@@ -128,18 +111,20 @@ public class SetDocumentStatusTest {
 
         getBatchDocuments = new GetBatchDocuments(pojo.getCookie());
         getBatchDocumentsPOJO = getBatchDocuments.GetBatchDocumentsMethod();
+
     }
 
 
     @Test
-    public void SetDocumentStatusMethod(){
-        System.out.println("Start SetDocumentStatus Test at : " + new Date());
+    public void getDocumentsFieldsTestMethod(){
+        System.out.println("Start SendBatch Test at : " + new Date());
 
-        setDocumentStatus = new SetDocumentStatus(pojo.getCookie(),getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"),"IsRedirected","IsCommented");
-        setDocumentStatusPOJO = setDocumentStatus.SetDocumentStatusMethod();
-        System.out.println("massage = " + setDocumentStatusPOJO.getMessage());
-        Assert.assertEquals(setDocumentStatusPOJO.getDocAlphaResponseCode(), "101");
-        System.out.println("End SetDocumentStatus Test at : " + new Date());
+        getDocumentFields = new GetDocumentFields(pojo.getCookie(), getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"));
+        getDocumentsFieldsPOJO = getDocumentFields.getDocumentFieldsMethod();
+
+        System.out.println("massage = " + getDocumentsFieldsPOJO.getMessage());
+        Assert.assertEquals(getDocumentsFieldsPOJO.getDocAlphaResponseCode(), "101");
+        System.out.println("End Reinitialize Test at : " + new Date());
     }
 
 
@@ -154,9 +139,5 @@ public class SetDocumentStatusTest {
         Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
         System.out.println("End Deinitialize at " + new Date());
     }
-
-
-
-
 
 }

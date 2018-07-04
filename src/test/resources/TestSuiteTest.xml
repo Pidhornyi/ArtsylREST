@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestSuite">
+<suite name="TestSuiteTest">
 
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -114,6 +114,18 @@
     <test name="Test17">
         <classes>
             <class name="tests.positive.SetDocumentStatusTest" />
+        </classes>
+
+    </test>
+    <test name="Test18">
+        <classes>
+            <class name="tests.positive.GetDocumentFieldsTest" />
+        </classes>
+
+    </test>
+    <test name="Test19">
+        <classes>
+            <class name="tests.positive.SetDocumentFieldTest" />
         </classes>
 
     </test>

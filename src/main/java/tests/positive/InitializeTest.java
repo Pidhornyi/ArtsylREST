@@ -1,12 +1,12 @@
 package tests.positive;
 
 
-import helpClass.Deinitialize;
-import helpClass.Initialize;
+import helpClass.*;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import pojo.InitializePOJO;
+import main.java.pojo.InitializePOJO;
 
 import java.util.Date;
 
@@ -30,13 +30,19 @@ static InitializePOJO pojo;
 static Deinitialize deinitialize;
     @Test
     public void Initialize(){
+        Reporter.log("Start Initialize Test at : " + new Date());
         System.out.println("Start Initialize Test at : " + new Date());
-        System.out.println("End Initialize Test at "+ new Date() );
+
 
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
         Assert.assertEquals(pojo.getDocAlphaResponseCode(),"101");
         System.out.println("Test passed");
+        System.out.println("End Initialize Test at "+ new Date() );
+        Reporter.log("End Initialize Test at "+ new Date());
+        Reporter.log("Test passed");
+
+
 
 
     }
