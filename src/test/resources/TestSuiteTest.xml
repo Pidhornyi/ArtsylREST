@@ -7,38 +7,38 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
 
     </listeners>
-    <test name="Test1">
+    <test name="1-InitializeTest">
         <classes>
             <class name="tests.positive.InitializeTest" />
         </classes>
     </test>
-    <test name="Test2">
+    <test name="2-DeinitializeTest">
         <classes>
 
             <class name="tests.positive.DeinitializeTest" />
         </classes>
 
     </test>
-    <test name="Test3">
+    <test name="3-ReinitializeTest">
         <classes>
             <class name="tests.positive.ReinitializeTest" />
         </classes>
 
     </test>
-    <test name="Test4">
+    <test name="4-GetWorkflowsTest">
         <classes>
             <class name="tests.positive.GetWorkflowsTest" />
         </classes>
 
     </test>
-    <test name="Test5">
+    <test name="5-GetSessionGuidTest">
         <classes>
             <class name="tests.positive.GetSessionGuidTest" />
         </classes>
 
     </test>
 
-    <test name="Test6">
+    <test name="6-GetBatchesTest">
         <classes>
             <class name="tests.positive.GetBatchesTest" />
         </classes>
@@ -46,7 +46,7 @@
     </test>
 
 
-    <test name="Test7">
+    <test name="7-GetBatchesForEditingTest">
         <classes>
             <class name="tests.positive.GetBatchesForEditingTest" />
         </classes>
@@ -54,76 +54,76 @@
     </test>
 
 
-    <test name="Test8">
+    <test name="8-CreateBatchTest">
         <classes>
             <class name="tests.positive.CreateBatchTest" />
         </classes>
 
     </test>
 
-    <test name="Test9">
+    <test name="9-LoadBatchByGuidTest">
         <classes>
             <class name="tests.positive.LoadBatchByGuidTest" />
         </classes>
 
     </test>
 
-    <test name="Test10">
+    <test name="10-AddBatchImageTest">
         <classes>
             <class name="tests.positive.AddBatchImageTest" />
         </classes>
 
     </test>
-    <test name="Test11">
+    <test name="11-AddBatchMetadataTest">
         <classes>
             <class name="tests.positive.AddBatchMetadataTest" />
         </classes>
 
     </test>
-    <test name="Test12">
+    <test name="12-SendBatchTest">
         <classes>
             <class name="tests.positive.SendBatchTest" />
         </classes>
 
     </test>
-    <test name="Test13">
+    <test name="13-GetBatchDocumentsTest">
         <classes>
             <class name="tests.positive.GetBatchDocumentsTest" />
         </classes>
 
     </test>
 
-    <test name="Test14">
+    <test name="14-PostponeBatchTest">
         <classes>
             <class name="tests.positive.PostponeBatchTest" />
         </classes>
 
     </test>
-    <test name="Test15">
+    <test name="15-GetDocumentPageTest">
         <classes>
             <class name="tests.positive.GetDocumentPageTest" />
         </classes>
 
     </test>
-    <test name="Test16">
+    <test name="16-SetDocumentCommentTest">
         <classes>
             <class name="tests.positive.SetDocumentCommentTest" />
         </classes>
 
     </test>
-    <test name="Test17">
+    <test name="17-SetDocumentStatusTest">
         <classes>
             <class name="tests.positive.SetDocumentStatusTest" />
         </classes>
 
     </test>
-    <test name="Test18">
+    <test name="18-GetDocumentFieldsTest">
         <classes>
             <class name="tests.positive.GetDocumentFieldsTest" />
         </classes>
 
     </test>
-    <test name="Test19">
+    <test name="19-SetDocumentFieldTest">
         <classes>
             <class name="tests.positive.SetDocumentFieldTest" />
         </classes>

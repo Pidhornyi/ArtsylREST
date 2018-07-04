@@ -20,6 +20,7 @@ public class Initialize {
         URLMethods methodsUrl = new URLMethods();
         String url = methodsUrl.getUrlInitialize();
         System.out.println(url);
+        Reporter.log(url);
 
 
 
@@ -28,7 +29,9 @@ public class Initialize {
         InitializePOJO pojo = gsoNparser.parser();
         System.out.println("Response Code = " + pojo.getReturnedValue());
         Reporter.log("Response Code = " + pojo.getReturnedValue());
-        System.out.println("End Initialize Help Class/  pojo = " +  pojo);
+
+        System.out.println("End Initialize Help Class" );
+        Reporter.log("End Initialize Help Class");
         return pojo;
 
 

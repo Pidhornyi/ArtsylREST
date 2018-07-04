@@ -6,6 +6,7 @@ import com.jayway.restassured.response.Response;
 
 import org.omg.CORBA.Request;
 import main.java.pojo.InitializePOJO;
+import org.testng.Reporter;
 
 
 import java.io.*;
@@ -19,7 +20,7 @@ public class AddBatchImage {
 
 
     private Cookies cookies;
-   ;
+
     public File file;
 
     public AddBatchImage(Cookies cookies){
@@ -29,6 +30,7 @@ public class AddBatchImage {
 
     public InitializePOJO AddBatchImageMethod() {
         System.out.println("AddBatchImage Help Class");
+        Reporter.log("AddBatchImage Help Class");
 
         String nameMethod = InitializePOJO.getAddBatchImage();
         String fileName = "TestPDF.pdf";
@@ -36,12 +38,14 @@ public class AddBatchImage {
 
         String url = methods.getUrlAddBatchImage() + fileName;
         System.out.println(url);
+        Reporter.log(url);
         try {
 
             file = new File("src/main/resources/TestPDF.Pdf");
 
             } catch (Exception e) {
             System.err.println("Error: Test file is missed !   " + e);
+            Reporter.log("Error: Test file is missed !   " + e);
         }
 
 
@@ -50,10 +54,12 @@ public class AddBatchImage {
 
 
         System.out.println("AddImage response " + response.toString());
+        Reporter.log("AddImage response " + response.toString());
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();
         System.out.println("End AddBatchImage Help Class");
+        Reporter.log("End AddBatchImage Help Class");
         return pojo;
     }
 

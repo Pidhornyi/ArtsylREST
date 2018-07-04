@@ -3,6 +3,7 @@ package helpClass;
 import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
 import main.java.pojo.InitializePOJO;
+import org.testng.Reporter;
 
 import static com.jayway.restassured.RestAssured.given;
 
@@ -26,6 +27,9 @@ public class SetDocumentField {
 
     public InitializePOJO setDocumentFieldMethod(){
 
+        System.out.println("Start SetDocumentField Help Class");
+        Reporter.log("Start SetDocumentField Help Class");
+
 
         String nameMethod = InitializePOJO.getSetDocumentFieldResult();
 
@@ -33,13 +37,15 @@ public class SetDocumentField {
         URLMethods methods = new URLMethods();
         String urlSetDocumentField = methods.getUrlSetDocumentField(documantsGuid,fieldGuid,fieldValue);
         System.out.println(urlSetDocumentField);
+        Reporter.log(urlSetDocumentField);
 
         // Запрос вместе с подставленной cookie
         Response setDocumentComment = given().cookie(String.valueOf(cookies)).when().get(urlSetDocumentField);
         GSONparser jsoNparseSetDocumentField = new GSONparser(setDocumentComment, nameMethod);
         InitializePOJO pojoSetDocumentField = jsoNparseSetDocumentField.parser();
 
-
+        System.out.println("End SetDocumentField Help Class");
+        Reporter.log("End SetDocumentField Help Class");
         return pojoSetDocumentField;
     }
 

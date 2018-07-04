@@ -3,6 +3,7 @@ package helpClass;
 import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
 import main.java.pojo.InitializePOJO;
+import org.testng.Reporter;
 
 import static com.jayway.restassured.RestAssured.given;
 
@@ -17,13 +18,14 @@ public class CreateBatch {
     }
 
     public InitializePOJO createBatchMethod() {
-        System.out.println("CreateBatch Help Class");
-
+        System.out.println(" Start CreateBatch Help Class");
+        Reporter.log(" Start CreateBatch Help Class");
         String nameMethod = InitializePOJO.getCreateBatchResult();
 
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlCreateBatch(guidWorkflow);
+        Reporter.log(url);
         System.out.println(url);
 
 
@@ -31,6 +33,7 @@ public class CreateBatch {
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();
+        Reporter.log("End CreateBatch Help Class");
         System.out.println("End CreateBatch Help Class");
         return pojo;
     }

@@ -3,6 +3,7 @@ package helpClass;
 import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
 import main.java.pojo.InitializePOJO;
+import org.testng.Reporter;
 
 import static com.jayway.restassured.RestAssured.given;
 
@@ -17,20 +18,22 @@ public class LoadBatchByGuid {
     }
 
     public InitializePOJO LoadBatchByGuidMethod() {
-        System.out.println("LoadBatchByGuid Help Class");
-
+        System.out.println("Start LoadBatchByGuid Help Class");
+        Reporter.log("Start LoadBatchByGuid Help Class");
         String nameMethod = InitializePOJO.getLoadBatchByGuidResult();
 
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlLoadBatchByGuid(guidBatch);
         System.out.println(url);
+        Reporter.log(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();
         System.out.println("End LoadBatchByGuid Help Class");
+        Reporter.log("End LoadBatchByGuid Help Class");
         return pojo;
     }
 
