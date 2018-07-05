@@ -42,7 +42,7 @@ public class GetBatchesForEditingTest {
 
 
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -53,7 +53,7 @@ public class GetBatchesForEditingTest {
     }
 
     @Test
-    public void GetBatchesForEditing(){
+    public void getBatchesForEditing(){
 
         getBatchesForEditing = new GetBatchesForEditing(pojo.getCookie());
         getBatchesForEditingPOJO = getBatchesForEditing.GetBatchesForEditingMethod();
@@ -64,7 +64,7 @@ public class GetBatchesForEditingTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize = new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

@@ -45,7 +45,7 @@ public class CreateBatchTest {
 
 
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -56,7 +56,7 @@ public class CreateBatchTest {
     }
 
     @Test
-    public void CreatBatch(){
+    public void creatBatch(){
 
        createBatch = new CreateBatch(pojo.getCookie(),getWorkflowPOJO.getMapMap().get("1").get("WorkflowGuid"));
        createBatchPOJO = createBatch.createBatchMethod();
@@ -67,7 +67,7 @@ public class CreateBatchTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize = new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

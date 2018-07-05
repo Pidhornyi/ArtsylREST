@@ -75,7 +75,7 @@ public class SetDocumentCommentTest {
 
     //Initialize
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -117,7 +117,7 @@ public class SetDocumentCommentTest {
 
 
     @Test
-    public void SetDocumentCommentMethod(){
+    public void setDocumentCommentMethod(){
         System.out.println("Start SetDocumentStatus Test at : " + new Date());
         setDocumentComment = new SetDocumentComment(pojo.getCookie() , getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"), "CommentTest");
         setDocumentCommentPOJO = setDocumentComment.setDocumentCommentMethod();
@@ -131,7 +131,7 @@ public class SetDocumentCommentTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

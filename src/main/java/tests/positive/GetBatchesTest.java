@@ -44,7 +44,7 @@ public class GetBatchesTest {
     static InitializePOJO deinitializePOJO;
 
     @BeforeMethod
-    public void Intitalize(){
+    public void intitalize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
         getWorkflows =new GetWorkflows(pojo.getCookie());
@@ -54,7 +54,7 @@ public class GetBatchesTest {
 
 
     @Test
-    public void GetBatches(){
+    public void getBatches(){
         // необходимо указать параметры Name и Guid для конкретного Workflow
         // Attention!!!!! Customs parameters
         getBatches = new GetBatches(pojo.getCookie(),getWorkflowsPojo.getMapMap().get("1").get("WorkflowGuid"));
@@ -67,7 +67,7 @@ public class GetBatchesTest {
 
     //Deinitialize
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

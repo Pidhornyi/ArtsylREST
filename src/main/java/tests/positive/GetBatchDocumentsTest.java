@@ -62,7 +62,7 @@ public class GetBatchDocumentsTest {
 
     //Initialize
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -101,7 +101,7 @@ public class GetBatchDocumentsTest {
 
 
     @Test
-    public void GetBatchDocuments(){
+    public void getBatchDocuments(){
         System.out.println("Start SendBatch Test at : " + new Date());
 
         getBatchDocuments = new GetBatchDocuments(pojo.getCookie());
@@ -116,7 +116,7 @@ public class GetBatchDocumentsTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

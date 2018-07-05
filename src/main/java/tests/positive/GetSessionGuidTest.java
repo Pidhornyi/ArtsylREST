@@ -37,7 +37,7 @@ public class GetSessionGuidTest {
 
 
     @BeforeMethod
-    public void Intitalize(){
+    public void intitalize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -45,7 +45,7 @@ public class GetSessionGuidTest {
 
     //getSessionGuid
     @Test
-    public void GetSessionGuid() {
+    public void getSessionGuid() {
 
         System.out.println("Start GetSessionGuid Test at : " + new Date());
 
@@ -64,7 +64,7 @@ public class GetSessionGuidTest {
 
     //Deinitialize
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

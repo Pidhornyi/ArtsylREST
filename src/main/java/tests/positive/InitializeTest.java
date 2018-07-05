@@ -29,7 +29,7 @@ static Initialize initialize;
 static InitializePOJO pojo;
 static Deinitialize deinitialize;
     @Test
-    public void Initialize(){
+    public void initialize(){
         Reporter.log("Start Initialize Test at : " + new Date());
         System.out.println("Start Initialize Test at : " + new Date());
 
@@ -48,7 +48,7 @@ static Deinitialize deinitialize;
     }
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize = new Deinitialize(pojo.getCookie());
         deinitialize.deinitializeMethod();

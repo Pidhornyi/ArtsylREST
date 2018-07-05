@@ -50,7 +50,7 @@ public class AddBatchMetadataTest {
 
 
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -64,7 +64,7 @@ public class AddBatchMetadataTest {
     }
 
     @Test
-    public void AddBatchMetadataTestMethod(){
+    public void addBatchMetadataTestMethod(){
 
         addBatchMetadata = new AddBatchMetadata(pojo.getCookie(),"testName", "testValue");
         addBatchMetadataPOJO= addBatchMetadata.AddBatchMetadataMethod();
@@ -75,7 +75,7 @@ public class AddBatchMetadataTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize = new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

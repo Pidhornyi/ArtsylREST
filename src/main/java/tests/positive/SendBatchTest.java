@@ -51,7 +51,7 @@ public class SendBatchTest {
 
     //Initialize
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -68,7 +68,7 @@ public class SendBatchTest {
 
 
     @Test
-    public void SendBatch(){
+    public void sendBatch(){
         System.out.println("Start SendBatch Test at : " + new Date());
 
         sendBatch = new SendBatch(pojo.getCookie());
@@ -82,7 +82,7 @@ public class SendBatchTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

@@ -75,7 +75,7 @@ public class GetDocumentPageTest {
 
     //Initialize
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -117,7 +117,7 @@ public class GetDocumentPageTest {
 
 
     @Test
-    public void GetDocumentPageMethod(){
+    public void getDocumentPageMethod(){
         System.out.println("Start GetDocumentPage Test at : " + new Date());
 
         getDocumentPage = new GetDocumentPage(pojo.getCookie(), getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"), "1");
@@ -131,7 +131,7 @@ public class GetDocumentPageTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

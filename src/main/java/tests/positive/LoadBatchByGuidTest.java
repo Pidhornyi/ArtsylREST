@@ -49,7 +49,7 @@ public class LoadBatchByGuidTest {
 
 
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -75,7 +75,7 @@ public class LoadBatchByGuidTest {
     }
 
     @Test
-    public void LoadBatchByGuid(){
+    public void loadBatchByGuid(){
 
 
         // необходимо указать id батча готового к редактированию (get("2"))
@@ -100,7 +100,7 @@ public class LoadBatchByGuidTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize = new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

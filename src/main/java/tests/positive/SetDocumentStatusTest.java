@@ -90,7 +90,7 @@ public class SetDocumentStatusTest {
 
     //Initialize
     @BeforeMethod
-    public void Initialize(){
+    public void initialize(){
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
 
@@ -132,7 +132,7 @@ public class SetDocumentStatusTest {
 
 
     @Test
-    public void SetDocumentStatusMethod(){
+    public void setDocumentStatusMethod(){
         System.out.println("Start SetDocumentStatus Test at : " + new Date());
 
         setDocumentStatus = new SetDocumentStatus(pojo.getCookie(),getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"),"IsRedirected","IsCommented");
@@ -146,7 +146,7 @@ public class SetDocumentStatusTest {
 
 
     @AfterMethod
-    public void Deinitialize(){
+    public void deinitialize(){
         System.out.println("Start Deinitialize at " + new Date());
         deinitialize= new Deinitialize(pojo.getCookie());
         deinitializePOJO = deinitialize.deinitializeMethod();

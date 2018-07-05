@@ -33,7 +33,7 @@ public class DeinitializeTest {
 
 
     @BeforeMethod
-    public void Intitalize(){
+    public void intitalize(){
 
         initialize = new Initialize();
         pojo = initialize.InitializeHelpMethod();
@@ -41,7 +41,7 @@ public class DeinitializeTest {
     }
 
     @Test
-    public void Deinitialize(){
+    public void deinitialize(){
 
         System.out.println("Start Deinitialize Test at : " + new Date());
 
