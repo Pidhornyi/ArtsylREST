@@ -121,9 +121,9 @@ public class GetDocumentPageTest {
         System.out.println("Start GetDocumentPage Test at : " + new Date());
 
         getDocumentPage = new GetDocumentPage(pojo.getCookie(), getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"), "1");
-        getDocumentPagePOJO = getDocumentPage.getDocumentPageMethod();
-        System.out.println("massage = " + getDocumentPagePOJO.getMessage());
-         Assert.assertEquals(getDocumentPagePOJO.getDocAlphaResponseCode(), "101");
+        String test = getDocumentPage.getDocumentPageMethod();
+       // System.out.println("massage = " + getDocumentPagePOJO.getMessage());
+         Assert.assertEquals(test, "test");
         System.out.println("End GetDocumentPage Test at : " + new Date());
     }
 
