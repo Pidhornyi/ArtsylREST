@@ -135,7 +135,7 @@
 
     <test name="20-SendButchOnVerifications">
         <classes>
-            <class name="tests.positive.SetDocumentFieldTest" />
+            <class name="tests.positive.SendButchOnVerifications" />
         </classes>
 
     </test>
