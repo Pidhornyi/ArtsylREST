@@ -1,33 +1,30 @@
 package tests.positive;
+/*
 
 
 
 
-    /*
-            Success = 101,
+       Success = 101,
             Created = 102,
             Failed = 103,
             InvalidInput = 104,
             Forbidden = 105,
             Authorized = 106
 
-
-
 Steps:
-
 1)Initialize
 2)GetWorkflow
 3)CreateBatch
 4)AddBatchImage
 5)SendBatch
-5.1) 5-7 seconds waiting
+5.1) 10 seconds waiting
 5.2) GetBatches
 6)LoadBatch (тот который был создан (последний))
-7)GetBatchDocuments (взять guid документа)
-8)SetDocumentCommentTest
-9)Deinitialize
+7)SendBatch
+
 
  */
+
 
 import helpClass.*;
 import org.testng.Assert;
@@ -38,12 +35,11 @@ import pojo.InitializePOJO;
 
 import java.util.Date;
 
-public class SetDocumentCommentTest {
+public class SendButchOnVerifications {
 
 
-
-    static Initialize initialize;
-    static InitializePOJO pojo;
+    static Initialize initialize ;
+    static InitializePOJO pojo ;
 
     static GetWorkflows getWorkflows;
     static InitializePOJO getWorkflowPOJO;
@@ -62,12 +58,6 @@ public class SetDocumentCommentTest {
 
     static LoadBatchByGuid loadBatchByGuid;
     static InitializePOJO loadBatchByGuidPOJO;
-
-    static GetBatchDocuments getBatchDocuments;
-    static InitializePOJO getBatchDocumentsPOJO;
-
-    static SetDocumentComment setDocumentComment;
-    static InitializePOJO setDocumentCommentPOJO;
 
 
     static Deinitialize deinitialize;
@@ -110,35 +100,19 @@ public class SetDocumentCommentTest {
 
         loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBatchesPOJO.getMapMap().get("0").get(InitializePOJO.getBatchGuid()));
         loadBatchByGuidPOJO = loadBatchByGuid.LoadBatchByGuidMethod();
-
-        getBatchDocuments = new GetBatchDocuments(pojo.getCookie());
-        getBatchDocumentsPOJO = getBatchDocuments.GetBatchDocumentsMethod();
     }
 
 
     @Test
-    public void setDocumentCommentMethod(){
-        System.out.println("Start SetDocumentStatus Test at : " + new Date());
-        setDocumentComment = new SetDocumentComment(pojo.getCookie() , getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"), "CommentTest");
-        setDocumentCommentPOJO = setDocumentComment.setDocumentCommentMethod();
-
-       //test
-        /*
-        System.out.println("test");
-        setDocumentCommentPOJO = setDocumentComment.setDocumentCommentMethod();
-        setDocumentCommentPOJO = setDocumentComment.setDocumentCommentMethod();
-
-        getBatchDocuments = new GetBatchDocuments(pojo.getCookie());
-        getBatchDocumentsPOJO = getBatchDocuments.GetBatchDocumentsMethod();
-
+    public void postponeBatch(){
+        System.out.println("Start SendButchOnVerifications Test at : " + new Date());
         sendBatch = new SendBatch(pojo.getCookie());
         sendBatchPOJO = sendBatch.sendBatchMethod();
-        System.out.println("test");
-        */
-        //test
-        System.out.println("massage = " + setDocumentCommentPOJO.getMessage());
-        Assert.assertEquals(setDocumentCommentPOJO.getDocAlphaResponseCode(), "101");
-        System.out.println("End SetDocumentStatus Test at : " + new Date());
+
+
+        System.out.println("massage = " + sendBatchPOJO.getMessage());
+        Assert.assertEquals(sendBatchPOJO.getDocAlphaResponseCode(), "101");
+        System.out.println("End postponeBatch Test at : " + new Date());
     }
 
 
@@ -156,5 +130,5 @@ public class SetDocumentCommentTest {
 
 
 
-
 }
+

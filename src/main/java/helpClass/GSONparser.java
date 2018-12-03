@@ -4,7 +4,7 @@ package helpClass;
 import com.jayway.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import main.java.pojo.InitializePOJO;
+import pojo.InitializePOJO;
 import org.testng.Reporter;
 
 import java.util.HashMap;

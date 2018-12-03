@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import main.java.pojo.InitializePOJO;
+import pojo.InitializePOJO;
 
 import java.util.Date;
 
@@ -40,7 +40,7 @@ static Deinitialize deinitialize;
         System.out.println("Test passed");
         System.out.println("End Initialize Test at "+ new Date() );
         Reporter.log("End Initialize Test at "+ new Date());
-        Reporter.log("Test passed");
+        Reporter.log((char)27 + "[31m" + "Test passed" + (char)27 + "[0m" );
 
 
 

@@ -6,7 +6,7 @@ import helpClass.Initialize;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import main.java.pojo.InitializePOJO;
+import pojo.InitializePOJO;
 
 import java.util.Date;
 
@@ -50,7 +50,7 @@ public class DeinitializeTest {
         deinitializePOJO = deinitialize.deinitializeMethod();
         System.out.println("massage = " + deinitializePOJO.getMessage());
         Assert.assertEquals(deinitializePOJO.getDocAlphaResponseCode(), "101");
-        System.out.println("End Deinitialize Test at : " + new Date());
+        System.out.println((char)27 + "[31m"  + "End Deinitialize Test at : " + new Date() + (char)27 + "[0m" );
 
     }
 }

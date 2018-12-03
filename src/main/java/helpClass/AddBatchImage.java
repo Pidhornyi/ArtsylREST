@@ -5,7 +5,7 @@ import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
 
 import org.omg.CORBA.Request;
-import main.java.pojo.InitializePOJO;
+import pojo.InitializePOJO;
 import org.testng.Reporter;
 
 
@@ -59,7 +59,7 @@ public class AddBatchImage {
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();
         System.out.println("End AddBatchImage Help Class");
-        Reporter.log("End AddBatchImage Help Class");
+        Reporter.log("End AddBatchImage Help Class" );
         return pojo;
     }
 

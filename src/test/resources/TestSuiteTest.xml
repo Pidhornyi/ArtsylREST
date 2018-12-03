@@ -111,6 +111,9 @@
         </classes>
 
     </test>
+
+
+
     <test name="17-SetDocumentStatusTest">
         <classes>
             <class name="tests.positive.SetDocumentStatusTest" />
@@ -124,6 +127,13 @@
 
     </test>
     <test name="19-SetDocumentFieldTest">
+        <classes>
+            <class name="tests.positive.SetDocumentFieldTest" />
+        </classes>
+
+    </test>
+
+    <test name="20-SendButchOnVerifications">
         <classes>
             <class name="tests.positive.SetDocumentFieldTest" />
         </classes>
