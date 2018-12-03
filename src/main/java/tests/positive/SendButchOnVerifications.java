@@ -11,7 +11,7 @@ package tests.positive;
             Forbidden = 105,
             Authorized = 106
 
-Steps:
+Steps :
 1)Initialize
 2)GetWorkflow
 3)CreateBatch
