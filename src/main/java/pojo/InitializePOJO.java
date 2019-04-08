@@ -35,6 +35,7 @@ public class InitializePOJO {
     private static String SetDocumentCommentResult="SetDocumentCommentResult";
     private static String SetDocumentFieldResult="SetDocumentFieldResult";
     private static String SetDocumentStatusResult="SetDocumentStatusResult";
+    private static String GetAvailiableStatusesResult="GetAvailiableStatusesResult";
 
     //(ReturnedValue) GetWorkflowsResult
     private static String WorkflowGuid="WorkflowGuid";
@@ -351,4 +352,9 @@ public class InitializePOJO {
     public void setMap(Map<String, String> map) {
         this.map = map;
     }
+
+    public static String getGetAvailiableStatuses() {
+        return GetAvailiableStatusesResult;
+    }
+
 }

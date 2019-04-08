@@ -25,6 +25,7 @@ public class GetBatchDocuments {
 
         URLMethods methods = new URLMethods();
         String url = methods.getUrlGetBatchDocuments();
+        System.out.println(url);
         Reporter.log(url);
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
 

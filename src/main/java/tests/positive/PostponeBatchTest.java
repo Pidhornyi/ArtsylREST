@@ -81,7 +81,7 @@ public class PostponeBatchTest {
         getWorkflows = new GetWorkflows(pojo.getCookie());
         getWorkflowPOJO = getWorkflows.getWorkflowsMethod();
 
-        createBatch = new CreateBatch(pojo.getCookie(), getWorkflowPOJO.getMapMap().get("1").get(InitializePOJO.getWorkflowGuid()));
+        createBatch = new CreateBatch(pojo.getCookie(), getWorkflowPOJO.getMapMap().get("1").get("WorkflowGuid"));
         createBatchPOJO = createBatch.createBatchMethod();
 
         addBatchImage = new AddBatchImage(pojo.getCookie());
@@ -100,13 +100,13 @@ public class PostponeBatchTest {
 
         }
 
-        getBatches = new GetBatches(pojo.getCookie(),getWorkflowPOJO.getMapMap().get("1").get(InitializePOJO.getWorkflowGuid()));
+        getBatches = new GetBatches(pojo.getCookie(),getWorkflowPOJO.getMapMap().get("1").get("WorkflowGuid"));
         getBatchesPOJO = getBatches.getBatchesMethod("0","0");
 
         //взять последний созданный батч (в Мар он под номером 0)
 
 
-        loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBatchesPOJO.getMapMap().get("0").get(InitializePOJO.getBatchGuid()));
+        loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBatchesPOJO.getMapMap().get("0").get("BatchGuid"));
         loadBatchByGuidPOJO = loadBatchByGuid.LoadBatchByGuidMethod();
     }
 

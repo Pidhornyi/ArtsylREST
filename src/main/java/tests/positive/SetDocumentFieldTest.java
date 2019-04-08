@@ -128,7 +128,7 @@ public class SetDocumentFieldTest {
     public void getDocumentsFieldsTestMethod(){
         System.out.println("Start SendBatch Test at : " + new Date());
 
-        setDocumentField = new SetDocumentField(pojo.getCookie(),getBatchDocumentsPOJO.getMapMap().get("0").get("Guid"),getDocumentsFieldsPOJO.getMapMap().get("0").get("FieldGuid"), "test");
+        setDocumentField = new SetDocumentField(pojo.getCookie(),getBatchDocumentsPOJO.getMapMap().get("0").get("BatchGuid"),getDocumentsFieldsPOJO.getMapMap().get("0").get("FieldGuid"), "test");
         setDocumentFieldPOJO = setDocumentField.setDocumentFieldMethod();
 
         System.out.println("massage = " + setDocumentFieldPOJO.getMessage());

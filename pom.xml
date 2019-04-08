@@ -69,15 +69,15 @@
             <version>20160212</version>
         </dependency>
 
-
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>RELEASE</version>
+            <version>6.0.1</version>
             <scope>compile</scope>
 
         </dependency>
+
+
         <dependency>
             <groupId>com.jayway.restassured</groupId>
             <artifactId>rest-assured</artifactId>

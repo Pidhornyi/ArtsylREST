@@ -1,10 +1,8 @@
 package helpClass;
 
-import com.jayway.restassured.internal.RestAssuredResponseImpl;
+
 import com.jayway.restassured.response.Cookies;
 import com.jayway.restassured.response.Response;
-
-import org.omg.CORBA.Request;
 import pojo.InitializePOJO;
 import org.testng.Reporter;
 
@@ -36,7 +34,7 @@ public class AddBatchImage {
         String fileName = "TestPDF.pdf";
         URLMethods methods = new URLMethods();
 
-        String url = methods.getUrlAddBatchImage() + fileName;
+        String url = methods.getUrlAddBatchImage();
         System.out.println(url);
         Reporter.log(url);
         try {
@@ -49,9 +47,10 @@ public class AddBatchImage {
         }
 
 
-
         Response response = given().cookie(String.valueOf(cookies)).multiPart(file).when().post(url);
 
+
+      // Response responsee =  given().cookie(String.valueOf(cookies)).put("test", )
 
         System.out.println("AddImage response " + response.toString());
         Reporter.log("AddImage response " + response.toString());

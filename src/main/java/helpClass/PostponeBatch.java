@@ -23,8 +23,8 @@ public class PostponeBatch {
 
 
     public InitializePOJO postponeBatchMethod() {
-        System.out.println("Start PostponeBatch Help Class");
-        Reporter.log("Start PostponeBatch Help Class");
+        System.out.println("Start SendButchOnVerifications Help Class");
+        Reporter.log("Start SendButchOnVerifications Help Class");
 
         String nameMethod = InitializePOJO.getPostponeBatchResult();
 
@@ -36,8 +36,8 @@ public class PostponeBatch {
 
         GSONparser gsoNparser = new GSONparser(response,nameMethod);
         InitializePOJO pojo = gsoNparser.parser();
-        System.out.println("End PostponeBatch Help Class");
-        Reporter.log("End PostponeBatch Help Class");
+        System.out.println("End SendButchOnVerifications Help Class");
+        Reporter.log("End SendButchOnVerifications Help Class");
         return pojo;
     }
 }

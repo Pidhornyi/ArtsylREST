@@ -30,6 +30,8 @@ public class GSONparser {
         try {
             Reporter.log("Start parser ");
             System.out.println("Start parse ");
+            System.out.println("GSONparser response = " + response);
+            System.out.println("GSONparser nameMethod = " + nameMethood );
             // JsonParser parser = new JsonParser();
 
             Map<String, String> mapForJson = new HashMap<String, String>();
@@ -52,7 +54,8 @@ public class GSONparser {
                 //  System.out.println(jsonObject2.get("DocAlphaResponseCode").toString());
                 pojo.setMessage(jsonObject1.get("Message").toString());
                 Reporter.log( "Message = " + jsonObject1.get("Message").toString());
-                //System.out.println("returnedValue = " + jsonObject1.get("ReturnedValue").toString());
+
+                System.out.println(" GSONparser returnedValue = " + jsonObject1.get("ReturnedValue").toString());
                 pojo.setReturnedValue(jsonObject1.get("ReturnedValue").toString());
                 pojo.setCookie(response.getDetailedCookies());
 

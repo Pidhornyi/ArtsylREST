@@ -7,6 +7,9 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
 
     </listeners>
+
+
+
     <test name="1-InitializeTest">
         <classes>
             <class name="tests.positive.InitializeTest" />
@@ -54,9 +57,10 @@
     </test>
 
 
-    <test name="8-CreateBatchTest">
+    <test name="8-PostponeBatchTest" >
         <classes>
-            <class name="tests.positive.CreateBatchTest" />
+
+            <class name="tests.positive.PostponeBatchTest" />
         </classes>
 
     </test>
@@ -93,9 +97,10 @@
 
     </test>
 
-    <test name="14-PostponeBatchTest">
+    <test name="14-CreateBatchTest">
         <classes>
-            <class name="tests.positive.PostponeBatchTest" />
+            <class name="tests.positive.CreateBatchTest" />
+
         </classes>
 
     </test>
@@ -139,6 +144,14 @@
         </classes>
 
     </test>
+
+    <test name="21-GetAvailiableStatuses">
+        <classes>
+            <class name="tests.positive.GetAvailiableStatusesTest" />
+        </classes>
+
+    </test>
+
 
 
 

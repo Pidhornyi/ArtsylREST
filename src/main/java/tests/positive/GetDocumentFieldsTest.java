@@ -100,13 +100,13 @@ public class GetDocumentFieldsTest {
 
         }
 
-        getBatches = new GetBatches(pojo.getCookie(),getWorkflowPOJO.getMapMap().get("1").get(InitializePOJO.getWorkflowGuid()));
+        getBatches = new GetBatches(pojo.getCookie(),getWorkflowPOJO.getMapMap().get("1").get("WorkflowGuid"));
         getBatchesPOJO = getBatches.getBatchesMethod("0","0");
 
         //взять последний созданный батч (в Мар он под номером 0)
 
 
-        loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBatchesPOJO.getMapMap().get("0").get(InitializePOJO.getBatchGuid()));
+        loadBatchByGuid = new LoadBatchByGuid(pojo.getCookie(),getBatchesPOJO.getMapMap().get("0").get("BatchGuid"));
         loadBatchByGuidPOJO = loadBatchByGuid.LoadBatchByGuidMethod();
 
         getBatchDocuments = new GetBatchDocuments(pojo.getCookie());

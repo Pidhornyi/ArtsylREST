@@ -5,6 +5,7 @@ import com.jayway.restassured.response.Response;
 import pojo.InitializePOJO;
 import org.testng.Reporter;
 
+
 import static com.jayway.restassured.RestAssured.given;
 
 public class GetSessionGuid {
@@ -16,6 +17,7 @@ public class GetSessionGuid {
 
     public InitializePOJO GetSessionGuidMethod() {
         System.out.println("Start GetSessionGuid Help Class");
+
         Reporter.log("Start GetSessionGuid Help Class");
         String nameMethod = InitializePOJO.getGetSessionGuidResult();
 

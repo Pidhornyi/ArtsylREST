@@ -75,6 +75,8 @@ public class URLMethods {
     //Set document flag status for document with specified guid.
     private String urlSetDocumentStatus ;
 
+    private String urlGetAvailiableStatuses;
+
 
     public FileInputStream fis;
    public URLMethods() {
@@ -106,6 +108,7 @@ public class URLMethods {
             this.urlSetDocumentComment = property.getProperty("dAurlSetDocumentComment");
             this.urlSetDocumentField = property.getProperty("dAurlSetDocumentField");
             this.urlSetDocumentStatus = property.getProperty("dAurlSetDocumentStatus");
+            this.urlGetAvailiableStatuses = property.getProperty("dAurlGetAvailiableStatuses");
 
 
         } catch (IOException e) {
@@ -113,6 +116,8 @@ public class URLMethods {
         }
 
     }
+
+
 
 
     public String getUrlInitialize(){
@@ -215,6 +220,11 @@ public class URLMethods {
 
     public String getUrlSetDocumentStatus(String guid, String flagValue, String statusValue){
         String result = urlSetDocumentStatus + "guid=" + guid + "&flag=" + flagValue + "&status=" + statusValue;
+        return result;
+    }
+
+    public String getUrlGetAvailiableStatuses(){
+        String result = urlGetAvailiableStatuses;
         return result;
     }
 
