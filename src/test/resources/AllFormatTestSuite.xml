@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AllFormatTestSuite">
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+
+    </listeners>
+
+    <test name="1-VSD">
+    <classes>
+        <class name="tests.AllFormats.VSDFormat" />
+    </classes>
+</test>
+
+    <test name="2-VSDX_2page">
+        <classes>
+            <class name="tests.AllFormats.VSDX_2pageFormat" />
+        </classes>
+    </test>
+
+    <test name="3-XLS">
+        <classes>
+            <class name="tests.AllFormats.XLSFormat" />
+        </classes>
+    </test>
+
+    <test name="4-XLSX">
+        <classes>
+            <class name="tests.AllFormats.XLSXFormat" />
+        </classes>
+    </test>
+
+    <test name="5-XML2">
+        <classes>
+            <class name="tests.AllFormats.XML2Format" />
+        </classes>
+    </test>
+
+    <test name="6-XML">
+        <classes>
+            <class name="tests.AllFormats.XMLFormat" />
+        </classes>
+    </test>
+
+    <test name="7-XPS">
+        <classes>
+            <class name="tests.AllFormats.XPSFormat" />
+        </classes>
+    </test>
+
+    <test name="8-Bmp2Format">
+        <classes>
+            <class name="tests.AllFormats.Bmp2Format" />
+        </classes>
+    </test>
+
+    <test name="9-CSVFormat">
+        <classes>
+            <class name="tests.AllFormats.CSVFormat" />
+        </classes>
+    </test>
+
+    <test name="10-DIBFormat">
+        <classes>
+            <class name="tests.AllFormats.DIBFormat" />
+        </classes>
+    </test>
+
+    <test name="11-DJVFormat">
+        <classes>
+            <class name="tests.AllFormats.DJVFormat" />
+        </classes>
+    </test>
+
+    <test name="12-DJVUFormat">
+        <classes>
+            <class name="tests.AllFormats.DJVUFormat" />
+        </classes>
+    </test>
+
+    <test name="13-DOCFormat">
+        <classes>
+            <class name="tests.AllFormats.DOCFormat" />
+        </classes>
+    </test>
+
+    <test name="14-DOCXFormat">
+        <classes>
+            <class name="tests.AllFormats.DOCXFormat" />
+        </classes>
+    </test>
+
+    <test name="15-GIFFormat">
+        <classes>
+            <class name="tests.AllFormats.GIFFormat" />
+        </classes>
+    </test>
+
+    <test name="16-HTMFormat">
+        <classes>
+            <class name="tests.AllFormats.HTMFormat" />
+        </classes>
+    </test>
+
+    <test name="17-HTMLFormat">
+        <classes>
+            <class name="tests.AllFormats.HTMLFormat" />
+        </classes>
+    </test>
+
+    <test name="18-J2KFormat">
+        <classes>
+            <class name="tests.AllFormats.J2KFormat" />
+        </classes>
+    </test>
+
+    <test name="19-JFIFFormat">
+        <classes>
+            <class name="tests.AllFormats.JFIFFormat" />
+        </classes>
+    </test>
+
+    <test name="20-JIFFormat">
+        <classes>
+            <class name="tests.AllFormats.JIFFormat" />
+        </classes>
+    </test>
+
+    <test name="21-JP2Format">
+        <classes>
+            <class name="tests.AllFormats.JP2Format" />
+        </classes>
+    </test>
+
+    <test name="22-JPEFormat">
+        <classes>
+            <class name="tests.AllFormats.JPEFormat" />
+        </classes>
+    </test>
+
+    <test name="23-JPEGFormat">
+        <classes>
+            <class name="tests.AllFormats.JPEGFormat" />
+        </classes>
+    </test>
+
+    <test name="24-JPFFormat">
+        <classes>
+            <class name="tests.AllFormats.JPFFormat" />
+        </classes>
+    </test>
+
+    <test name="25-JPGFormat">
+        <classes>
+            <class name="tests.AllFormats.JPGFormat" />
+        </classes>
+    </test>
+
+    <test name="26-JPMFormat">
+        <classes>
+            <class name="tests.AllFormats.JPMFormat" />
+        </classes>
+    </test>
+
+    <test name="27-JPXFormat">
+        <classes>
+            <class name="tests.AllFormats.JPXFormat" />
+        </classes>
+    </test>
+
+    <test name="28-MU2Format">
+        <classes>
+            <class name="tests.AllFormats.MU2Format" />
+        </classes>
+    </test>
+
+    <test name="29-ODP_3pagesFormat">
+        <classes>
+            <class name="tests.AllFormats.ODP_3pagesFormat" />
+        </classes>
+    </test>
+
+    <test name="30-ODSFormat">
+        <classes>
+            <class name="tests.AllFormats.ODSFormat" />
+        </classes>
+    </test>
+
+    <test name="31-ODTFormat">
+        <classes>
+            <class name="tests.AllFormats.ODTFormat" />
+        </classes>
+    </test>
+
+    <test name="32-PDF_one_pageFormat">
+        <classes>
+            <class name="tests.AllFormats.PDF_one_pageFormat" />
+        </classes>
+    </test>
+
+    <test name="33-PNGFormat">
+        <classes>
+            <class name="tests.AllFormats.PNGFormat" />
+        </classes>
+    </test>
+
+    <test name="34-PPS_4pagesFormat">
+        <classes>
+            <class name="tests.AllFormats.PPS_4pagesFormat" />
+        </classes>
+    </test>
+
+    <test name="35-PPSX_4pagesFormat">
+        <classes>
+            <class name="tests.AllFormats.PPSX_4pagesFormat" />
+        </classes>
+    </test>
+
+    <test name="36-PPT_6pagesFormat">
+        <classes>
+            <class name="tests.AllFormats.PPT_6pagesFormat" />
+        </classes>
+    </test>
+
+    <test name="37-PPTX_3pagesFormat">
+        <classes>
+            <class name="tests.AllFormats.PPTX_3pagesFormat" />
+        </classes>
+    </test>
+
+    <test name="38-RTFFormat">
+        <classes>
+            <class name="tests.AllFormats.RTFFormat" />
+        </classes>
+    </test>
+
+    <test name="39-TIFFFormat">
+        <classes>
+            <class name="tests.AllFormats.TIFFFormat" />
+        </classes>
+    </test>
+
+    <test name="40-TIFFormat">
+        <classes>
+            <class name="tests.AllFormats.TIFFormat" />
+        </classes>
+    </test>
+
+    <test name="41-TXTFormat">
+        <classes>
+            <class name="tests.AllFormats.TXTFormat" />
+        </classes>
+    </test>
+
+
+        </suite>

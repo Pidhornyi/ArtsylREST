@@ -12,38 +12,38 @@
 
     <test name="1-InitializeTest">
         <classes>
-            <class name="tests.positive.InitializeTest" />
+            <class name="tests.REST.positive.InitializeTest" />
         </classes>
     </test>
     <test name="2-DeinitializeTest">
         <classes>
 
-            <class name="tests.positive.DeinitializeTest" />
+            <class name="tests.REST.positive.DeinitializeTest" />
         </classes>
 
     </test>
     <test name="3-ReinitializeTest">
         <classes>
-            <class name="tests.positive.ReinitializeTest" />
+            <class name="tests.REST.positive.ReinitializeTest" />
         </classes>
 
     </test>
     <test name="4-GetWorkflowsTest">
         <classes>
-            <class name="tests.positive.GetWorkflowsTest" />
+            <class name="tests.REST.positive.GetWorkflowsTest" />
         </classes>
 
     </test>
     <test name="5-GetSessionGuidTest">
         <classes>
-            <class name="tests.positive.GetSessionGuidTest" />
+            <class name="tests.REST.positive.GetSessionGuidTest" />
         </classes>
 
     </test>
 
     <test name="6-GetBatchesTest">
         <classes>
-            <class name="tests.positive.GetBatchesTest" />
+            <class name="tests.REST.positive.GetBatchesTest" />
         </classes>
 
     </test>
@@ -51,7 +51,7 @@
 
     <test name="7-GetBatchesForEditingTest">
         <classes>
-            <class name="tests.positive.GetBatchesForEditingTest" />
+            <class name="tests.REST.positive.GetBatchesForEditingTest" />
         </classes>
 
     </test>
@@ -60,59 +60,59 @@
     <test name="8-PostponeBatchTest" >
         <classes>
 
-            <class name="tests.positive.PostponeBatchTest" />
+            <class name="tests.REST.positive.PostponeBatchTest" />
         </classes>
 
     </test>
 
     <test name="9-LoadBatchByGuidTest">
         <classes>
-            <class name="tests.positive.LoadBatchByGuidTest" />
+            <class name="tests.REST.positive.LoadBatchByGuidTest" />
         </classes>
 
     </test>
 
     <test name="10-AddBatchImageTest">
         <classes>
-            <class name="tests.positive.AddBatchImageTest" />
+            <class name="tests.REST.positive.AddBatchImageTest" />
         </classes>
 
     </test>
     <test name="11-AddBatchMetadataTest">
         <classes>
-            <class name="tests.positive.AddBatchMetadataTest" />
+            <class name="tests.REST.positive.AddBatchMetadataTest" />
         </classes>
 
     </test>
     <test name="12-SendBatchTest">
         <classes>
-            <class name="tests.positive.SendBatchTest" />
+            <class name="tests.REST.positive.SendBatchTest" />
         </classes>
 
     </test>
     <test name="13-GetBatchDocumentsTest">
         <classes>
-            <class name="tests.positive.GetBatchDocumentsTest" />
+            <class name="tests.REST.positive.GetBatchDocumentsTest" />
         </classes>
 
     </test>
 
     <test name="14-CreateBatchTest">
         <classes>
-            <class name="tests.positive.CreateBatchTest" />
+            <class name="tests.REST.positive.CreateBatchTest" />
 
         </classes>
 
     </test>
     <test name="15-GetDocumentPageTest">
         <classes>
-            <class name="tests.positive.GetDocumentPageTest" />
+            <class name="tests.REST.positive.GetDocumentPageTest" />
         </classes>
 
     </test>
     <test name="16-SetDocumentCommentTest">
         <classes>
-            <class name="tests.positive.SetDocumentCommentTest" />
+            <class name="tests.REST.positive.SetDocumentCommentTest" />
         </classes>
 
     </test>
@@ -121,33 +121,33 @@
 
     <test name="17-SetDocumentStatusTest">
         <classes>
-            <class name="tests.positive.SetDocumentStatusTest" />
+            <class name="tests.REST.positive.SetDocumentStatusTest" />
         </classes>
 
     </test>
     <test name="18-GetDocumentFieldsTest">
         <classes>
-            <class name="tests.positive.GetDocumentFieldsTest" />
+            <class name="tests.REST.positive.GetDocumentFieldsTest" />
         </classes>
 
     </test>
     <test name="19-SetDocumentFieldTest">
         <classes>
-            <class name="tests.positive.SetDocumentFieldTest" />
+            <class name="tests.REST.positive.SetDocumentFieldTest" />
         </classes>
 
     </test>
 
     <test name="20-SendButchOnVerifications">
         <classes>
-            <class name="tests.positive.SendButchOnVerifications" />
+            <class name="tests.REST.positive.SendButchOnVerifications" />
         </classes>
 
     </test>
 
     <test name="21-GetAvailiableStatuses">
         <classes>
-            <class name="tests.positive.GetAvailiableStatusesTest" />
+            <class name="tests.REST.positive.GetAvailiableStatusesTest" />
         </classes>
 
     </test>

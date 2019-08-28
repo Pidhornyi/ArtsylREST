@@ -26,12 +26,12 @@ public class AddBatchImage {
 
     }
 
-    public InitializePOJO AddBatchImageMethod() {
+    public InitializePOJO AddBatchImageMethod(String name) {
         System.out.println("AddBatchImage Help Class");
         Reporter.log("AddBatchImage Help Class");
 
         String nameMethod = InitializePOJO.getAddBatchImage();
-        String fileName = "TestPDF.pdf";
+        String fileName = name;
         URLMethods methods = new URLMethods();
 
         String url = methods.getUrlAddBatchImage();
@@ -39,7 +39,7 @@ public class AddBatchImage {
         Reporter.log(url);
         try {
 
-            file = new File("src/main/resources/TestPDF.Pdf");
+            file = new File("src/main/resources/AllFormats/" + fileName);
 
             } catch (Exception e) {
             System.err.println("Error: Test file is missed !   " + e);
@@ -51,6 +51,42 @@ public class AddBatchImage {
 
 
       // Response responsee =  given().cookie(String.valueOf(cookies)).put("test", )
+
+        System.out.println("AddImage response " + response.toString());
+        Reporter.log("AddImage response " + response.toString());
+
+        GSONparser gsoNparser = new GSONparser(response,nameMethod);
+        InitializePOJO pojo = gsoNparser.parser();
+        System.out.println("End AddBatchImage Help Class");
+        Reporter.log("End AddBatchImage Help Class" );
+        return pojo;
+    }
+
+    public InitializePOJO AddBatchImageMethod() {
+        System.out.println("AddBatchImage Help Class");
+        Reporter.log("AddBatchImage Help Class");
+
+        String nameMethod = InitializePOJO.getAddBatchImage();
+        String fileName = "01_Supplier_Invoice_AJ_Dukes_0_0.bmp";
+        URLMethods methods = new URLMethods();
+
+        String url = methods.getUrlAddBatchImage();
+        System.out.println(url);
+        Reporter.log(url);
+        try {
+
+            file = new File("src/main/resources/01_Supplier_Invoice_AJ_Dukes_0_0.bmp");
+
+        } catch (Exception e) {
+            System.err.println("Error: Test file is missed !   " + e);
+            Reporter.log("Error: Test file is missed !   " + e);
+        }
+
+
+        Response response = given().cookie(String.valueOf(cookies)).multiPart(file).when().post(url);
+
+
+        // Response responsee =  given().cookie(String.valueOf(cookies)).put("test", )
 
         System.out.println("AddImage response " + response.toString());
         Reporter.log("AddImage response " + response.toString());

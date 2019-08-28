@@ -70,11 +70,12 @@ public class GSONparser {
                     } else if (jsonObject1.get("ReturnedValue") instanceof JSONArray) {
                         Map<String, Map<String, String>> tempMapMap = new HashMap<String, Map<String, String>>();
                         int q = ((JSONArray) jsonObject1.get("ReturnedValue")).length();
-                        //System.out.println(" length = " + q);
+                       // System.out.println(" length = " + q);
                         //первый ключь - это индекс массива
                         for (Integer i = 0; i < q; i++) {
                             Map<String, String> tempMap;
                             JSONObject temp = ((JSONArray) jsonObject1.get("ReturnedValue")).getJSONObject(i);
+                           // System.out.println("ITER" + ((JSONArray) jsonObject1.get("ReturnedValue")).getJSONObject(i));
                             tempMap = objectMap(temp);
                             String key = String.valueOf(i);
                             mapMap.put(key, tempMap);
