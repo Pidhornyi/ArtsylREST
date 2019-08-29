@@ -30,7 +30,9 @@
 
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/TestSuiteTest.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/AllFormatTestSuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
+
                 </configuration>
             </plugin>
 

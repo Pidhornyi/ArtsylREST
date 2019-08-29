@@ -76,7 +76,7 @@ public class ODSFormat {
         getWorkflows = new GetWorkflows(pojo.getCookie());
         getWorkflowPOJO = getWorkflows.getWorkflowsMethod();
 
-        createBatch = new CreateBatch(pojo.getCookie(), getWorkflowPOJO.getMapMap().get("2").get("WorkflowGuid"));
+        createBatch = new CreateBatch(pojo.getCookie(), getWorkflowPOJO.getMapMap().get("1").get("WorkflowGuid"));
         createBatchPOJO = createBatch.createBatchMethod();
 
         addBatchImage = new AddBatchImage(pojo.getCookie());
@@ -89,7 +89,7 @@ public class ODSFormat {
 
 // Важно указать время для распознавания !!!
         try {
-            Thread.sleep(45000);
+            Thread.sleep(15000);
         }catch (Exception e){
             System.err.println("Exception !!!");
             System.err.println(e);

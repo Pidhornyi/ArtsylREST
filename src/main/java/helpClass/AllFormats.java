@@ -32,7 +32,7 @@ public class AllFormats {
              "PPS_4pages.pps",
              "PPSX_4pages.ppsx",
              "PPT_6pages.ppt",
-             "PPTX_3Ppages.pptx",
+             "PPTX_3pages.pptx",
              "RTF.rtf",
              "TIF.tif",
              "TIFF.tiff",

@@ -88,7 +88,7 @@ public class Bmp2Format {
 
 // Важно указать время для распознавания !!!
             try {
-                Thread.sleep(45000);
+                Thread.sleep(15000);
             }catch (Exception e){
                 System.err.println("Exception !!!");
                 System.err.println(e);
