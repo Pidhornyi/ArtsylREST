@@ -59,7 +59,11 @@ public class AddBatchImage {
         InitializePOJO pojo = gsoNparser.parser();
         System.out.println("End AddBatchImage Help Class");
         Reporter.log("End AddBatchImage Help Class" );
-        return pojo;
+        System.out.println(response.getStatusCode());
+        System.out.println("*************************************");
+        if(response.getStatusCode() == 200){
+        return pojo;}
+        return null;
     }
 
     public InitializePOJO AddBatchImageMethod() {
@@ -90,12 +94,16 @@ public class AddBatchImage {
 
         System.out.println("AddImage response " + response.toString());
         Reporter.log("AddImage response " + response.toString());
+        System.out.println(response.getStatusCode());
+        System.out.println("*************************************");
 
-        GSONparser gsoNparser = new GSONparser(response,nameMethod);
-        InitializePOJO pojo = gsoNparser.parser();
-        System.out.println("End AddBatchImage Help Class");
-        Reporter.log("End AddBatchImage Help Class" );
-        return pojo;
+       // if(response.getStatusCode() == 200) {
+            GSONparser gsoNparser = new GSONparser(response, nameMethod);
+            InitializePOJO pojo = gsoNparser.parser();
+            System.out.println("End AddBatchImage Help Class");
+            Reporter.log("End AddBatchImage Help Class");
+            return pojo;
+      //  return null;
     }
 
 

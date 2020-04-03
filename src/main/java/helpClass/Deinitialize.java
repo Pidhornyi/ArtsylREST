@@ -24,6 +24,7 @@ public class Deinitialize {
          System.out.println(url);
 
         Response response = given().cookie(String.valueOf(cookies)).when().get(url);
+
          GSONparser gsoNparser = new GSONparser(response,nameMethod);
          InitializePOJO pojo = gsoNparser.parser();
 

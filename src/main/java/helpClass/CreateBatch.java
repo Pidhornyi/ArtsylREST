@@ -12,7 +12,7 @@ public class CreateBatch {
 
     private Cookies cookies;
     private String guidWorkflow;
-    public CreateBatch(Cookies cookies, String guidWorkflow){
+   public CreateBatch(Cookies cookies, String guidWorkflow){
         this.cookies=cookies;
         this.guidWorkflow = guidWorkflow;
     }

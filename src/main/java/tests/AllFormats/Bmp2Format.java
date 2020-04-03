@@ -88,7 +88,7 @@ public class Bmp2Format {
 
 // Важно указать время для распознавания !!!
             try {
-                Thread.sleep(15000);
+                Thread.sleep(45000);
             }catch (Exception e){
                 System.err.println("Exception !!!");
                 System.err.println(e);
@@ -130,8 +130,6 @@ public class Bmp2Format {
             Assert.assertEquals(pojo.getDocAlphaResponseCode(), "101");
             System.out.println("End Deinitialize at " + new Date());
         }
-
-
 
     }
 

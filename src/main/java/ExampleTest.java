@@ -1,3 +1,8 @@
+import com.jayway.restassured.response.Response;
+
+import static com.jayway.restassured.RestAssured.given;
+
+
 public class ExampleTest {
 
     static int a =  3;
@@ -14,6 +19,8 @@ public class ExampleTest {
         // (char)27 + "[0m" сбросить в стандарт
         System.out.println((char) 27 + "[31mWarning! " + (char)27 + "[0m");
         System.out.println("31mWarning! ");
+        //Response response = given().body("test").when().post();
+
     }
 
     public static void rtr(){

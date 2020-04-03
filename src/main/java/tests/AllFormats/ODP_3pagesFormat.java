@@ -89,7 +89,7 @@ public class ODP_3pagesFormat {
 
 // Важно указать время для распознавания !!!
         try {
-            Thread.sleep(15000);
+            Thread.sleep(30000);
         }catch (Exception e){
             System.err.println("Exception !!!");
             System.err.println(e);
